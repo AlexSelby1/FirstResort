@@ -25,6 +25,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'devise','~> 4.7.3'
+gem 'carrierwave', '~> 2.1.0'
+gem 'mini_magick'
+gem 'wdm', '>= 0.1.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -35,6 +40,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'listen'
   gem 'web-console', '>= 3.3.0'
 end
 
