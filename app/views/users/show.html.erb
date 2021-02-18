@@ -1,0 +1,15 @@
+<h1>Profile</h1>
+<% if @user.images_url %>
+ <%= image_tag @user.images_url(:profile) %>
+<% else %>
+<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic") %>
+ <% end %>
+<br>
+<label>UserID:</label>
+<p><%= @user.id %></p>
+<label>Name:</label>
+<p><%= @user.name %></p>
+<label>Email:</label>
+<p><%= @user.email %></p>
+
+ <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>

@@ -10,12 +10,20 @@
   </head>
 
   <body>
+
+        <% if notice %>
+        <div id="notice">
         <p class="notice"><%= notice %></p>
+        </div>
+        <% elsif alert %>
+        <div id="alert">
        <p class="alert"><%= alert %></p>
-  <%=render 'layouts/header' %>
+       </div>
+       <% end %>
+  <%= render 'layouts/header' unless hidden_header_footer %>
       <div class="container">
        <%= yield %>
        </div>
-  <%=render 'layouts/footer' %>
+  <%= render 'layouts/footer' unless hidden_header_footer %>
   </body>
 </html>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job_application.title %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @job_application.country %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @job_application.category %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @job_application.duration %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job_application.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @job_application.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
+<%= link_to 'Back', job_applications_path %>

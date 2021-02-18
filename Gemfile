@@ -6,7 +6,7 @@ ruby '2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+ gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -25,10 +25,20 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# gem 'mysql2'
+# postgres for database
+gem 'pg', '~> 1.2.3'
+# lock passwords
+gem 'figaro'
+gem  'mailcatcher'
 gem 'devise','~> 4.7.3'
 gem 'carrierwave', '~> 2.1.0'
-gem 'mini_magick'
+gem 'mini_magick', '~> 4.11'
+# gem 'image_magick'
 gem 'wdm', '>= 0.1.0'
+gem 'mail_form'
+gem 'simple_form'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
