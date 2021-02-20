@@ -1,4 +1,8 @@
 /* Header Section */
+.headSec {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
+}
 .headSec #nav ul li:hover{
 	background-color: #265077;
 
@@ -58,10 +62,12 @@ li a {
 .container {
     width: 100%;
     min-height: 50vw;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
 /* Footer Section*/
 .footSec {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
     list-style-type: none;
 	min-height: 80px;
 	background-color: #022140;
@@ -121,7 +127,6 @@ li a {
 }
 /* Centered text in front of Slideshow */
 .centered {
-	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size:50px;
 	font-weight: bolder;
 	color:white;
@@ -195,6 +200,8 @@ li a {
 	background-color: #265077;
 	}
 
+
+
 	/*Log in & Sign in */
 	.logged {
 		height:100%;
@@ -222,11 +229,14 @@ li a {
 		border-radius: 5%;
 	}
 
+
 	/* Alerts / Notices / Errors */
 
 	.hidden{
 		display: none;
 	}
+
+
 
 	/* Profile */
 	.profile{
@@ -236,11 +246,18 @@ li a {
 		width: 100%;
 		
 	}
+	.profile h1{
+		color: #022140;
+		text-align: center;
+		text-decoration: none;
+		font-size: 60px;
+		font-weight: bold;
+		
+	}
 	.profilepic{
 		float:left;
 		margin-left: 1vw;
-		margin-top: 2vw;
-		width:0.1%;
+		border: 5px solid #2d5f5d;
 
 	}
 
@@ -249,31 +266,49 @@ li a {
 		margin-top: 200px;
 		color: black;
 		margin: auto;
-		border-style: solid;
-		border-color: 265077;
-		border-radius: 25px;
 		width: 60%;
 	}
 
 /* Job Applications */
+
 .jobs {
 	width: 100%;
-text-align: center;
+
 }
 .jobContainer {
-	border: grey;
-	border-width: 0.5px;
-	border-style: solid;
+	border: #f5f5f5 solid 0.5px;
+	text-align: left;
 	float:center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	width: 60%;
-	padding:10px;
+	padding-left: 10px;
+	padding-top:10px;
+	padding-right: 10px;
+	
+	
 }
 .jobContainer #img {
 float:left;
+padding-right: 15px;
 }
+
+p.text{
+	color: #494b68;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+.jobContainer #jobOption {
+	background-color: #f5f5f5;
+	border-top: #f5f5f5 solid 0.5px;
+	padding:15px;
+	}
 
 .jobContainer h1 {
 	color: black;
@@ -282,11 +317,16 @@ float:left;
 	font-size: 20px;
 }
 
-.jobContainer p {
-
-	color: black;
+.showJob{
+	height: 100%;
+	padding-bottom: 50px;
 	text-align: center;
-	text-decoration: none;
-	font-size: 16px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;	
 }
+.showJob #img{
+	padding:20px;
+}
+
 	

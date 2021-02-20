@@ -30,14 +30,20 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.2.3'
 # lock passwords
 gem 'figaro'
+# Check for success of mail
 gem  'mailcatcher'
+#user authentication
 gem 'devise','~> 4.7.3'
+# Uploading images and files
 gem 'carrierwave', '~> 2.1.0'
 gem 'mini_magick', '~> 4.11'
 # gem 'image_magick'
 gem 'wdm', '>= 0.1.0'
+#sending mail from forms
 gem 'mail_form'
 gem 'simple_form'
+#setting pages
+gem 'kaminari'
 
 
 # Reduces boot times through caching; required in config/boot.rb

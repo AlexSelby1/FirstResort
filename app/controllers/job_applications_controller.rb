@@ -4,7 +4,7 @@ class JobApplicationsController < ApplicationController
 
   # GET /job_applications or /job_applications.json
   def index
-    @job_applications = JobApplication.all
+    @job_applications = JobApplication.order("created_at desc").page(params[:page]).per(3)
   end
 
   # GET /job_applications/1 or /job_applications/1.json
@@ -65,6 +65,6 @@ class JobApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_application_params
-      params.require(:job_application).permit(:title, :country, :category, :duration, :description, :user_id, :images)
+      params.require(:job_application).permit(:title, :country, :category, :duration, :description, :images, :remove_images)
     end
 end

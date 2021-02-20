@@ -1,5 +1,6 @@
 <div id="jobs">
-<h1>Job Applications</h1>
+
+<br>
 <%= link_to 'New Job Application', new_job_application_path %>
 <br>
 <br>
@@ -7,22 +8,22 @@
     <div class="jobContainer">
     <div id="img">
         <% if job_application.images_url %>
-    <%= image_tag job_application.images_url(:thumb) %>
+    <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
     <% end %> 
     </div>
-    <p><%= job_application.country %></p>
-        <h1><%= job_application.title %></h1>
-         <p> <%= job_application.category %></p>
+    <p class="text"><%= job_application.category %></p>
+        <h1><%= link_to (job_application.title), job_application %></h1>
          <p> <%= job_application.description %></p>
+         <p class="text"> <%= job_application.country %></p>
         <br>
-        <br>
-        <hr>
-        <div id="jobOption">
-        <%= link_to 'Show', job_application %>
+        <br>      
+        <div id="jobOption">   
         <%= link_to 'Edit', edit_job_application_path(job_application) %>
-        <%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
+        <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Contact', "/" %>
+        <%= link_to 'Apply', "/" %>
+  </div>
     </div>
     <% end %>
-<br>
+    <%= paginate @job_applications %>
 </div>

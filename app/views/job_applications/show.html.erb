@@ -1,28 +1,40 @@
-<div id="jobs">
-<div class="jobContainer">
+<div class="showJob">
+<br>
+    <h1><%= @job_application.title %></h1>
+  <div id="img">
+        <% if @job_application.images_url %>
+    <%= image_tag @job_application.images_url(:default) %>
+    <% end %> 
+    </div>
 <p>
-  <strong>Title:</strong>
-  <%= @job_application.title %>
-</p>
-<p>
+  <div class="profiletext">
+  <hr>
   <strong>Country:</strong>
   <%= @job_application.country %>
 </p>
-
+<hr>
+</div>
 <p>
+  <div class="profiletext">
   <strong>Category:</strong>
   <%= @job_application.category %>
 </p>
-
+<hr>
+</div>
 <p>
-  <strong>Description:</strong>
+  <div class="profiletext">
+  <strong>Description:</strong><br>
   <%= @job_application.description %>
 </p>
-
+<hr>
+</div>
+  <div class="profiletext">
 <p>
-  <strong>User:</strong>
-  <%= @job_application.user_id %>
+  <strong>Owner:</strong>
+  <%= @job_application.user.name %>
 </p>
+<hr>
+</div>
 
 <%= link_to 'Edit', edit_job_application_path(@job_application) %> |
 <%= link_to 'Back', job_applications_path %>

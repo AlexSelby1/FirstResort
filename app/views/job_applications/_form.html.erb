@@ -22,14 +22,7 @@
   </div>
 
   <div class="field">
-  					<select id="category" name="category">
-  						<option value="reset">Choose Category</option>
-  						<option value="Barperson">Barperson</option>
-  						<option value="Waiter/Waitress">Waiter/Waitress</option>
-  						<option value="Chef">Chef</option>
-  						<option value="Barrista">Barrista</option>
-              <option value="Other">Other</option>
-  					</select>
+   <%= form.select :category, ['None','Barperson', 'Waiter/Waitress', 'Chef', 'Barista', 'Other'] %>
   </div>
 
   <div class="field">
