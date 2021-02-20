@@ -22,24 +22,32 @@
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.date_select :duration %>
+  					<select id="category" name="category">
+  						<option value="reset">Choose Category</option>
+  						<option value="Barperson">Barperson</option>
+  						<option value="Waiter/Waitress">Waiter/Waitress</option>
+  						<option value="Chef">Chef</option>
+  						<option value="Barrista">Barrista</option>
+              <option value="Other">Other</option>
+  					</select>
   </div>
 
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
+  
   <div class="field">
     <%= form.label :user_id %>
     <%= form.text_field :user_id %>
   </div>
+<br>
+        <%= form.file_field :images %>
+    <% if form.object.images? %>
+      <%= image_tag form.object.images.thumb.url %>
+      <%= form.label "Remove Image" %>
+      <%= form.check_box :remove_images %> 
+    <% end %>
 
   <div class="actions">
     <%= form.submit %>
