@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :job_applications
+  
  # devise_for :users
 
   devise_for :users, controllers: {
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
    }
 
    resources :users
+   resources :job_applications
 
   root 'static_pages#home'
 

@@ -1,15 +1,38 @@
-<h1>Profile</h1>
+
+<div class="profile">
+<h1><%= @user.name %></h1>
+<div class="profilepic">
+<br>
 <% if @user.images_url %>
  <%= image_tag @user.images_url(:profile) %>
 <% else %>
 <%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic") %>
  <% end %>
+ </div>
 <br>
-<label>UserID:</label>
-<p><%= @user.id %></p>
-<label>Name:</label>
-<p><%= @user.name %></p>
-<label>Email:</label>
-<p><%= @user.email %></p>
-
+<h2>Email:</h2>
+  <div class="profiletext">
+<p class="text"><%= @user.email %></p>
+ </div>
+ <h2>From:</h2>
+  <div class="profiletext">
+<%if @user.country.nil? %>
+<p>Please edit profile to add country</p>
+<% else %>
+<p><%= @user.country %></p>
+<% end %>
+</div>
+<h2>Bio:</h2>
+  <div class="profiletext">
+<%if @user.bio.nil? %>
+<p>Please edit profile to add your skills</p>
+<% else %>
+<p><%= @user.bio %></p>
+<% end %>
+   </div>
+ <br>
+ <p><%= link_to "View CV", asset_path(@user.file) %></p>
+ <br>
  <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
+ </div>
+</div>

@@ -1,6 +1,6 @@
 class JobApplication < ApplicationRecord
 
-  mount_uploader :images, ImageUploaderUploader
+  mount_uploader :images, ImageUploader
 
   validates_processing_of :images
   validate :image_size_validation

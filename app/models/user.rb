@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
          has_many :job_application
 
-         mount_uploader :images, ImageUploaderUploader
+         mount_uploader :images, ImageUploader
+         mount_uploader :file, FileUploader
 
 
          validates_processing_of :images
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :images, :isHost, :isCandidate)
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :images, :isHost, :isCandidate, :country, :file)
   end
 
 end
