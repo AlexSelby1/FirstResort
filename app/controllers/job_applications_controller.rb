@@ -5,6 +5,7 @@ class JobApplicationsController < ApplicationController
   # GET /job_applications or /job_applications.json
   def index
     @job_applications = JobApplication.order("created_at desc").page(params[:page]).per(3)
+    @categories = Category.all
   end
 
   # GET /job_applications/1 or /job_applications/1.json

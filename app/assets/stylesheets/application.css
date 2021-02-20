@@ -329,4 +329,46 @@ p.text{
 	padding:20px;
 }
 
+.cat {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 22%;
+    padding:10px;
+    min-height: 300px;
+   
+}
+
+/* Categories */
+
+.cat h1 {
+   display: block;
+    color: #022140;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px
+    
+}
+
+
+.cat p {
+   display: block;
+    color: #022140;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px
+    
+}
+
+
+.catIm {
+    width: 40%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block;
+    
+}
 	

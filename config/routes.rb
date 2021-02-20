@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get '/contacts/new' => 'contacts#new'
   get '/contacts' => 'contacts#create'
 
+  get 'category/:title', to: 'static_pages#category'
+
 end
