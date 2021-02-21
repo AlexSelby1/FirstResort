@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :country %>
-    <%= form.text_field :country %>
+    <%= form.country_select :country, { include_blank: 'Select a country' } %>
   </div>
 
   <div class="field">

@@ -62,7 +62,8 @@ class JobApplicationsController < ApplicationController
    # SEARCH
    def search
     st = "%#{params[:q]}%"
-    @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ?", st.downcase, st.downcase).order("created_at desc").page(params[:page]).per(3)
+    ct = "%#{params[:c]}%"
+    @job_applications = JobApplication.where("lower(title) like ? AND lower(country) like ?", st.downcase, ct.downcase).order("created_at desc").page(params[:page]).per(3)
    end
 
   # CATEGORY  

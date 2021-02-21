@@ -44,8 +44,8 @@ gem 'mail_form'
 gem 'simple_form'
 #setting pages
 gem 'kaminari'
-
-
+# country select
+gem 'country_select'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
