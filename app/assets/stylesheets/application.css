@@ -200,6 +200,22 @@ li a {
 	background-color: #265077;
 	}
 
+	.button {
+		background-color: #265077;
+		border: none;
+		color: white;
+		border-radius: 5px;
+		padding: 5px 5px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	.button:hover {
+		background-color: #022140;
+	}
 
 
 	/*Log in & Sign in */
@@ -217,8 +233,8 @@ li a {
 
 	.loginbox{
 		text-align: center;
-		width:400px;
-		height:600px;
+		width:450px;
+		height:650px;
 		background:white;
 		color: black;
 		top:50%;

@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authorize_admin, only: :index
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:id, :username, :email, :username, :password, :password_confirmation, :bio, :remember_me, :isHost, :isCandidate, :images, :file)
+    params.require(:user).permit(:id, :email, :name, :password, :password_confirmation, :bio, :remember_me, :isHost, :isCandidate, :images, :file)
   end
   
   def authorize_admin

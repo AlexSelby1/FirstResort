@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job_application, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :set_job_application, only: [ :show, :edit, :update, :destroy ]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   # GET /job_applications or /job_applications.json
   def index
@@ -10,11 +10,12 @@ class JobApplicationsController < ApplicationController
 
   # GET /job_applications/1 or /job_applications/1.json
   def show
+    @job_application = JobApplication.find(params[:id])
   end
 
   # GET /job_applications/new
   def new
-    @job_application = JobApplication.new
+    @job_application = current_user.job_applications.new
   end
 
   # GET /job_applications/1/edit
@@ -23,8 +24,8 @@ class JobApplicationsController < ApplicationController
 
   # POST /job_applications or /job_applications.json
   def create
-    @job_application = JobApplication.new(job_application_params)
-
+    @job_application = current_user.job_applications.new(job_application_params)
+    @job_application.user_id = current_user.id
     respond_to do |format|
       if @job_application.save
         format.html { redirect_to @job_application, notice: "Job application was successfully created." }
@@ -58,14 +59,27 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+   # SEARCH
+   def search
+    st = "%#{params[:q]}%"
+    @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ?", st.downcase, st.downcase).order("created_at desc").page(params[:page]).per(3)
+   end
+
+  # CATEGORY  
+  def category
+    catName=params[:title]
+    @job_applications = JobApplication.where("category LIKE?", catName).order("created_at desc").page(params[:page]).per(3)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job_application
-      @job_application = JobApplication.find(params[:id])
+      @job_applications = JobApplication.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def job_application_params
-      params.require(:job_application).permit(:title, :country, :category, :duration, :description, :images, :remove_images)
+      params.require(:job_application).permit(:id, :title, :country, :category, :description, :images, :user_id)
     end
 end

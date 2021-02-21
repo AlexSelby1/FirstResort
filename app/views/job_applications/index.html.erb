@@ -1,7 +1,11 @@
 <div id="jobs">
 
 <br>
-<%= link_to 'New Job Application', new_job_application_path %>
+<% if ((user_is_admin) || (user_is_host)) %>
+<%= link_to 'New Job Application', new_job_application_path, :class =>"button", :role=>"button" %>
+<% end %>
+<br>
+<%=render 'layouts/search'%>
 <br>
 <%=render 'layouts/categories'%>
 <br>
@@ -19,10 +23,10 @@
         <br>
         <br>      
         <div id="jobOption">   
-        <%= link_to 'Edit', edit_job_application_path(job_application) %>
-        <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Contact', "/" %>
-        <%= link_to 'Apply', "/" %>
+        <% if ((user_is_admin) || (user_is_candidate)) %>
+        <%= link_to 'Contact', "/",  :class => "button", :role => "button"  %>
+        <%= link_to 'Apply', "/",  :class => "button", :role => "button"  %>
+        <% end %>
   </div>
     </div>
     <% end %>

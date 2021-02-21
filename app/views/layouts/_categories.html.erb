@@ -1,6 +1,6 @@
 <br>
 <% @categories.each do |category| %>
-<div class="cat" style="background-image: url('asset_path(category.image)');">
+<div class="cat">
 <p><a href="/category/<%= category.title %>" class="button"><%= category.title %></a></p>
 <%= link_to (image_tag category.image, :class=>"catIm"), category %>
 </div>

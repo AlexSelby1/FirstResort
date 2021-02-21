@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   get 'category/:title', to: 'static_pages#category'
 
+  post '/search' => 'job_applications#search'
+
 end

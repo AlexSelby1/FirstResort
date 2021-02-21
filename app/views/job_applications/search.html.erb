@@ -1,0 +1,30 @@
+<div id="jobs">
+ <h2>You Searched Our Catalog For <%= @st %></h2>
+<% if @job_applications.length == 0 %>
+<br>
+<h2>No Jobs were found to match your search</h2>
+<% end %>
+
+    <% @job_applications.each do |job_application| %>
+    <div class="jobContainer">
+    <div id="img">
+        <% if job_application.images_url %>
+    <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
+    <% end %> 
+    </div>
+    <p class="text"><%= job_application.category %></p>
+        <h1><%= link_to (job_application.title), job_application %></h1>
+         <p> <%= job_application.description %></p>
+         <p class="text"> <%= job_application.country %></p>
+        <br>
+        <br>      
+        <div id="jobOption">   
+        <% if ((user_is_admin) || (user_is_candidate)) %>
+        <%= link_to 'Contact', "/",  :class => "button", :role => "button"  %>
+        <%= link_to 'Apply', "/",  :class => "button", :role => "button"  %>
+        <% end %>
+  </div>
+    </div>
+    <% end %>
+    <%= paginate @job_applications %>
+</div>

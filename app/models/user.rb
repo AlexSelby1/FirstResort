@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-         has_many :job_application
+         has_many :job_applications
 
          mount_uploader :images, ImageUploader
          mount_uploader :file, FileUploader
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :images, :isHost, :isCandidate, :country, :file)
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :images, :isAdmin, :isHost, :isCandidate, :country, :file)
   end
 
 end

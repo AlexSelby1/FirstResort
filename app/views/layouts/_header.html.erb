@@ -7,7 +7,7 @@
        <li><%= link_to "Home", "/" %></li>
        <li><%= link_to "Contact", '/contacts/new' %></li>
        <li><%= link_to "Discover", "/jobs" %></li>
-      <li><%= link_to 'New Category', new_category_path, :class =>"button", :role=>"button" %></li>
+      <li><%= link_to 'New Category', new_category_path %></li>
        <div id="end">
        <% if user_signed_in? %>
        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
