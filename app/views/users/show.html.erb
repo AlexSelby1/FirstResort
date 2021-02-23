@@ -6,7 +6,7 @@
 <% if @user.images_url %>
  <%= image_tag @user.images_url(:pic) %>
 <% else %>
-<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic") %>
+<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", style: 'height:200px;width:200;') %>
  <% end %>
  </div>
 <br>

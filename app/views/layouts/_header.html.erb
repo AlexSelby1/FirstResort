@@ -7,13 +7,10 @@
        <li><%= link_to "Home", "/" %></li>
        <li><%= link_to "Contact", '/contacts/new' %></li>
        <li><%= link_to "Discover", "/jobs" %></li>
-      <li><%= link_to 'New Category', new_category_path %></li>
        <div id="end">
        <% if user_signed_in? %>
        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-       <% if user_is_host %>
        <li><%= link_to image_tag("profile.png", alt:"Account"), user_path(current_user) %></li>
-       <% end %>
        <% else %>
        <li><%= link_to "Sign Up", new_user_registration_path %></li>
        <li><%= link_to "Log In", new_user_session_path %></li>

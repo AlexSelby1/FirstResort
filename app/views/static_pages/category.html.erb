@@ -3,10 +3,8 @@
 <br/>
 <h2>There are currently no jobs in this category</h2>
 <% end %>
-<br>
-<%= link_to 'New Job Application', new_job_application_path %>
-<br>
-<br>
+<%=render 'layouts/search'%>
+<%=render 'layouts/categories'%>
     <% @job_applications.each do |job_application| %>
     <div class="jobContainer">
     <div id="img">
@@ -29,4 +27,5 @@
     </div>
     <% end %>
     <%= paginate @job_applications %>
+    <%= link_to 'New Job Application', new_job_application_path %>
 </div>

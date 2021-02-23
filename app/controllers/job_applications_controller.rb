@@ -63,7 +63,17 @@ class JobApplicationsController < ApplicationController
    def search
     st = "%#{params[:q]}%"
     ct = "%#{params[:c]}%"
-    @job_applications = JobApplication.where("lower(title) like ? AND lower(country) like ?", st.downcase, ct.downcase).order("created_at desc").page(params[:page]).per(3)
+    if params[:c] == ''
+     @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ? AND lower(country) like ?", st.downcase, st.downcase, nil).order("created_at desc").page(params[:page]).per(3)
+    elsif params[:q] == ''
+      @job_applications = JobApplication.where("lower(country) like ?", ct.downcase).order("created_at desc").page(params[:page]).per(3)
+    else
+      @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ?", st.downcase, st.downcase).where("lower(country) like ?", ct.downcase).order("created_at desc").page(params[:page]).per(3)
+
+  #  @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ? AND lower(country) like ?", st.downcase, st.downcase, ct.downcase).order("created_at desc").page(params[:page]).per(3)
+    end
+    @categories = Category.all
+     # @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ? AND lower(country) like ?", st.downcase, nil, ct.downcase).order("created_at desc").page(params[:page]).per(3)
    end
 
   # CATEGORY  

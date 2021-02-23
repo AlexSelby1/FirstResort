@@ -1,10 +1,10 @@
 <div id="jobs">
- <h2>You Searched Our Catalog For <%= @st %></h2>
 <% if @job_applications.length == 0 %>
 <br>
 <h2>No Jobs were found to match your search</h2>
 <% end %>
-
+<%=render 'layouts/search'%>
+<%=render 'layouts/categories'%>
     <% @job_applications.each do |job_application| %>
     <div class="jobContainer">
     <div id="img">
