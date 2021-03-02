@@ -2,16 +2,33 @@
 
 one:
   title: MyString
-  country: 
-  category: MyString
-  duration: 2021-02-15
+  country: England
+  cat: Kitchen
   description: MyText
-  user: one
+  images: <%= file_sha 'C:\Users\Alex.Selby\Documents\Software Dev Diploma\Project\Images\bar.jpeg' %>
+  user_id: 25
 
-two:
-  title: MyString
-  country: 
-  category: MyString
-  duration: 2021-02-15
-  description: MyText
-  user: two
+#two:
+#  title: MyString
+ # country: Ireland
+ # category: Bar
+ # description: MyText
+ # user: two
+
+job_application_1:
+  id: 1
+  title: Barperson
+  country: Ireland
+  cat: Bar
+  description: agrdaergve
+  user_id: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2021-02-21 09:22:55.657048000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2021-02-21 09:22:55.657048000 Z
+    zone: *2
+    time: *3
+  images: Bar.jpeg

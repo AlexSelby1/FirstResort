@@ -97,6 +97,7 @@ li a {
 /* Hide the images by default */
 .mySlides {
   display: none;
+
 }
 
 .mySlides #img{
@@ -105,6 +106,7 @@ li a {
 	-o-filter: blur(1px); 
 	-ms-filter: blur(1px); 
 	filter: blur(1px); 
+
 
 }
 
@@ -128,7 +130,7 @@ li a {
 /* Centered text in front of Slideshow */
 .centered {
 	font-size:50px;
-	font-weight: bolder;
+	font-style: italic bold;
 	color:white;
 	position: absolute;
 	top: 50%;
@@ -139,14 +141,31 @@ li a {
   .centered-button {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	border-radius: 25px;
-	padding: 10px 40px;
-	background-color: white;
+	padding: 30px 80px;
+	background-color: #05386B ;
 	font-size:20px;
-	color:#05386B;
+	color: white;
 	position: absolute;
 	top: 70%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+  }
+  
+  .centered-button .slideLink {
+	color: white;
+  }
+
+  .centered-button .slideLink:hover {
+	color: #05386B;
+  }
+
+  .centered-button:hover .slideLink {
+ color: #05386B;
+  }
+
+  .centered-button:hover {
+	background-color: white ;
+	color: #022140;
   }
 
   /* Styling for Forms */
@@ -209,7 +228,7 @@ li a {
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
-		font-size: 16px;
+		font-size: 12px;
 		margin: 4px 2px;
 		cursor: pointer;
 	}
@@ -311,6 +330,9 @@ float:left;
 padding-right: 15px;
 overflow: auto;
 }
+.jobContainer #img:hover {
+opacity:0.7;
+	}
 
 .jobContainer p{
 	color: rgb(105, 104, 104);
@@ -352,6 +374,10 @@ p.text{
 	padding:20px;
 }
 
+.paginate{
+	text-align: center;
+}
+
 /* Categories */
 
 .category{
@@ -367,6 +393,7 @@ p.text{
     width: 22%;
     padding:10px;
     min-height: 300px;
+	position: relative;
    
 }
 
@@ -379,12 +406,22 @@ p.text{
  }
  
  .catIm {
+	 position:relative;
 	 padding-top: 20px;
 	 width: 40%; 
 	 margin-left: auto; 
 	 margin-right: auto; 
 	 display: block;
 	 position: relative;
+ }
+
+ .catIm:hover{
+	 opacity:0.7;
+ }
+
+ .cat .catLink{
+	 position: absolute;
+
  }
 
 /* Search */

@@ -23,8 +23,9 @@
   </div>
     </div>
     <% end %>
+    <div class="paginate">
     <%= paginate @job_applications %>
-
+    </div>
     <% if ((user_is_admin) || (user_is_host)) %>
 <%= link_to 'New Job Application', new_job_application_path, :class =>"button", :role=>"button" %>
 <% end %>

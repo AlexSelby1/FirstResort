@@ -1,13 +1,16 @@
 require 'test_helper'
 
 class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
-    @job_application = job_applications(:one)
+    get '/users/sign_in'
+    sign_in users(:one)
+    post user_session_url
   end
 
   test "should get index" do
     get job_applications_url
-    assert_response :redirect
+    assert_response :success
   end
 
   test "should get new" do
@@ -17,7 +20,7 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create job_application" do
     assert_difference('JobApplication.count') do
-      post job_applications_url, params: { job_application: { category: @job_application.category, country: @job_application.country, description: @job_application.description, duration: @job_application.duration, title: @job_application.title, user_id: @job_application.user_id } }
+      post job_applications_url, params: { job_application: { cat: @job_application.cat, country: @job_application.country, description: @job_application.description, title: @job_application.title, user_id: @job_application.user_id } }
     end
 
     assert_redirected_to job_application_url(JobApplication.last)
@@ -30,11 +33,11 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get edit" do
     get edit_job_application_url(@job_application)
-    assert_response :success
+    assert_response :redirected
   end
 
   test "should update job_application" do
-    patch job_application_url(@job_application), params: { job_application: { category: @job_application.category, country: @job_application.country, description: @job_application.description, duration: @job_application.duration, title: @job_application.title, user_id: @job_application.user_id } }
+    patch job_application_url(@job_application), params: { job_application: { cat: @job_application.cat, country: @job_application.country, description: @job_application.description, title: @job_application.title, user_id: @job_application.user_id } }
     assert_redirected_to job_application_url(@job_application)
   end
 

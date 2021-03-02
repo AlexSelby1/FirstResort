@@ -17,7 +17,6 @@ class JobApplicationsTest < ApplicationSystemTestCase
     fill_in "Category", with: @job_application.category
     fill_in "Country", with: @job_application.country
     fill_in "Description", with: @job_application.description
-    fill_in "Duration", with: @job_application.duration
     fill_in "Title", with: @job_application.title
     fill_in "User", with: @job_application.user_id
     click_on "Create Job application"
@@ -33,7 +32,6 @@ class JobApplicationsTest < ApplicationSystemTestCase
     fill_in "Category", with: @job_application.category
     fill_in "Country", with: @job_application.country
     fill_in "Description", with: @job_application.description
-    fill_in "Duration", with: @job_application.duration
     fill_in "Title", with: @job_application.title
     fill_in "User", with: @job_application.user_id
     click_on "Update Job application"
