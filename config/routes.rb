@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     registrations: 'registrations',
     confirmations: 'confirmations'
    }
+   devise_scope :user do
+    post 'users/sign_up', to: 'devise/registrations#create'
+end
 
    resources :users
    
