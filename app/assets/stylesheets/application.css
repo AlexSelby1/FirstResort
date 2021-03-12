@@ -1,10 +1,23 @@
+/*
+ *= require font-awesome
+ */
+
 /* Header Section */
 .headSec {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 15px;
 }
 .headSec #nav ul li:hover{
-	background-color: #379683;
+	background-color: white;
+	color: #05386B;
+}
+.fa:hover{
+	padding: 14px 16px;
+	color: #05386B;
+	margin-top: -5px;
+}
+#nav a:link, a:hover{
+	color: #05386B;
 
 }
 .headSec #logo{
@@ -56,6 +69,10 @@ li a {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+}
+.fa{
+	padding: 14px 16px;
+	margin-top: -5px;
 }
 
 /* Container*/

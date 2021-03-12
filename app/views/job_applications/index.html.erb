@@ -6,8 +6,10 @@
     <% @job_applications.each do |job_application| %>
     <div class="jobContainer">
     <div id="img">
-        <% if job_application.images_url %>
+    <% if job_application.images_url %>
     <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
+    <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
     <% end %> 
     </div>
     <p class="text"><%= job_application.category %></p><p class="text"> <%= job_application.country %></p>
@@ -17,8 +19,8 @@
         <br>      
         <div id="jobOption">   
         <% if ((user_is_admin) || (user_is_candidate)) %>
-        <%= link_to 'Contact', "/",  :class => "button", :role => "button"  %>
-        <%= link_to 'Apply', "/",  :class => "button", :role => "button"  %>
+        
+        <%= link_to 'Apply', "/" ,  :class => "button", :role => "button"  %>
         <% end %>
   </div>
     </div>

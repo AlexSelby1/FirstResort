@@ -8,13 +8,18 @@ Rails.application.routes.draw do
     registrations: 'registrations',
     confirmations: 'confirmations'
    }
-   devise_scope :user do
+  devise_scope :user do
     post 'users/sign_up', to: 'devise/registrations#create'
-end
+  end
 
    resources :users
    
    resources :job_applications
+
+   resources :conversations do
+    resources :messages
+  end
+
 
   root 'static_pages#home'
 

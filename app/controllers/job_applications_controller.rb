@@ -69,11 +69,8 @@ class JobApplicationsController < ApplicationController
       @job_applications = JobApplication.where("lower(country) like ?", ct.downcase).order("created_at desc").page(params[:page]).per(3)
     else
       @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ?", st.downcase, st.downcase).where("lower(country) like ?", ct.downcase).order("created_at desc").page(params[:page]).per(3)
-
-  #  @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ? AND lower(country) like ?", st.downcase, st.downcase, ct.downcase).order("created_at desc").page(params[:page]).per(3)
     end
     @categories = Category.all
-     # @job_applications = JobApplication.where("lower(title) like ? OR lower(description) like ? AND lower(country) like ?", st.downcase, nil, ct.downcase).order("created_at desc").page(params[:page]).per(3)
    end
 
   # CATEGORY  
@@ -91,6 +88,6 @@ class JobApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_application_params
-      params.require(:job_application).permit(:id, :title, :country, :category, :description, :images, :user_id)
+      params.require(:job_application).permit(:id, :title, :country, :cat, :description, :images, :user_id)
     end
 end

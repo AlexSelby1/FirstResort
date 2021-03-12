@@ -1,5 +1,4 @@
 <div class="slideshow-container">
-
   <!-- Slideshow -->
   <div class="mySlides fade">
   <div id="img">
@@ -8,7 +7,6 @@
     <div class="centered">Discover your next journey </div>
     <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
   </div>
-
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("Cafe.jpeg"), style: 'width:100%;height:30vw;'%>
@@ -16,7 +14,6 @@
      <div class="centered">Discover your next journey</div>
      <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
   </div>
-
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("cocktail1.jpeg"), style: 'width:100%;height:30vw;' %>
@@ -24,7 +21,6 @@
      <div class="centered">Discover your next journey</div>
      <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
   </div>
-
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("kitchen.jpeg"),style: 'width:100%;height:30vw;' %>
@@ -32,9 +28,5 @@
      <div class="centered">Discover your next journey</div>
      <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
   </div>
-
 </div>
-<%=render 'layouts/categories'%>
-<br>
-
 <%= javascript_pack_tag 'application'%>

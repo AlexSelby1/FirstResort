@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   after_action :set_host
 
 

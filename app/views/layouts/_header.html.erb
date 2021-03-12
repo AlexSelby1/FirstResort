@@ -4,13 +4,21 @@
       <div id="logo">
       <%= link_to image_tag("LogoWhite.png", alt:"Logo"), "/" %>
       </div>
-       <li><%= link_to "Home", "/" %></li>
-       <li><%= link_to "Contact", '/contacts/new' %></li>
-       <li><%= link_to "Discover", "/jobs" %></li>
+      <%= link_to "/" do %>
+       <li><i class="fa fa-home fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
+      <%= link_to "/jobs" do %>
+       <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
        <div id="end">
        <% if user_signed_in? %>
        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-       <li><%= link_to image_tag("profile.png", alt:"Account"), user_path(current_user) %></li>
+       <%= link_to user_path(current_user) do %>
+       <li><i class="fa fa-user fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
+        <%= link_to conversations_path do%>
+       <li><i class="fa fa-comment fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
        <% else %>
        <li><%= link_to "Sign Up", new_user_registration_path %></li>
        <li><%= link_to "Log In", new_user_session_path %></li>

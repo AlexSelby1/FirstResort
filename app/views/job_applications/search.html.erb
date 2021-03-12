@@ -10,7 +10,9 @@
     <div id="img">
         <% if job_application.images_url %>
     <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
-    <% end %> 
+    <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
+    <% end %>  
     </div>
     <p class="text"><%= job_application.category %></p>
         <h1><%= link_to (job_application.title), job_application %></h1>

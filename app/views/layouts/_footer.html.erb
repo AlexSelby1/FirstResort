@@ -2,7 +2,13 @@
          
      <li><%= link_to "Contact Us", "#" %></li>
      <div id="icons">
-        <%= link_to image_tag("facebook.png", alt:"facebook Logo"), "https://www.facebook.com" %>
-         <%= link_to image_tag("twitter.png", alt:"twitter Logo"), "https://www.instagram.com" %>
-        <%= link_to image_tag("instagram.png", alt:"instagram Logo"), "https://twitter.com" %>
+           <%= link_to "https://www.facebook.com" do %>
+       <i class="fa fa-facebook-square fa-2x fa-inverse" aria-hidden="true"></i>
+       <% end %>
+             <%= link_to "https://www.instagram.com" do %>
+        <i class="fa fa-instagram fa-2x fa-inverse" aria-hidden="true"></i>
+       <% end %>
+             <%= link_to "https://twitter.com" do %>
+       <i class="fa fa-twitter-square fa-2x fa-inverse" aria-hidden="true"></i>
+       <% end %>
     </div>

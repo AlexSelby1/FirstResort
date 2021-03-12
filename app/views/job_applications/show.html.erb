@@ -4,6 +4,8 @@
   <div id="img">
         <% if @job_application.images_url %>
     <%= image_tag @job_application.images_url(:default) %>
+        <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:600px;width:800px;') %>
     <% end %> 
     </div>
 <p>
@@ -35,6 +37,9 @@
 </p>
 <hr>
 </div>
+ <% if ((user_is_admin) || (user_is_candidate)) %>
+  <%= link_to "Message", conversations_path(sender_id: current_user.id, recipient_id: @job_application.user.id), method: 'post',  :class => "button", :role => "button"  %>
+<% end %>
 <% if ((user_is_admin) || (user_is_owner)) %>
 <%= link_to 'Edit', edit_job_application_path(@job_application),  :class => "button", :role => "button"  %>
  <%= link_to 'Delete', @job_application, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
