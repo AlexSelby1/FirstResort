@@ -2,6 +2,8 @@
  *= require font-awesome
  */
 
+
+
 /* Header Section */
 .headSec {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -463,5 +465,29 @@ p.text{
 	float:right;
 	width:10%;
 }
+/* Conversation and messages */
+.message{
+margin: auto;
+width: 80%;
+}
 
-	
+.message #img{
+	float: left;
+	padding: 20px 10px;
+	max-height: 20px;
+	max-width: 20px;
+}
+.message #body{
+	border: 2px solid #dedede;
+	background-color: #f1f1f1;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px 0;
+	overflow: auto;
+}
+
+.textarea{
+	margin-left: 10%;
+	width: 80%;
+	height: 10vw;
+}

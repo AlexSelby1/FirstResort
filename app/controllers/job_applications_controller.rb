@@ -26,6 +26,7 @@ class JobApplicationsController < ApplicationController
   def create
     @job_application = current_user.job_applications.new(job_application_params)
     @job_application.user_id = current_user.id
+    
     respond_to do |format|
       if @job_application.save
         format.html { redirect_to @job_application, notice: "Job application was successfully created." }

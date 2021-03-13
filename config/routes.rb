@@ -2,19 +2,23 @@ Rails.application.routes.draw do
 
   
   resources :categories
- # devise_for :users
 
   devise_for :users, controllers: {
-    registrations: 'registrations',
+      registrations: 'registrations',
     confirmations: 'confirmations'
-   }
+  }
   devise_scope :user do
     post 'users/sign_up', to: 'devise/registrations#create'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-   resources :users
+   resources :users do
+    resources :reviews, only: [:new, :create]
+ end
    
    resources :job_applications
+
+   resources :reviews, except: [:index]
 
    resources :conversations do
     resources :messages
@@ -34,5 +38,7 @@ Rails.application.routes.draw do
   get 'category/:title', to: 'static_pages#category'
 
   post '/search' => 'job_applications#search'
+
+  
 
 end

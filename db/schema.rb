@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_071751) do
+ActiveRecord::Schema.define(version: 2021_03_12_153018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2021_03_12_071751) do
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
+  create_table "job_requests", force: :cascade do |t|
+    t.bigint "job_application_id", null: false
+    t.integer "applicant_id"
+    t.boolean "accepted", default: false
+    t.boolean "rejected", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_application_id"], name: "index_job_requests_on_job_application_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "conversation_id"
@@ -50,6 +60,17 @@ ActiveRecord::Schema.define(version: 2021_03_12_071751) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "reviewer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +98,5 @@ ActiveRecord::Schema.define(version: 2021_03_12_071751) do
   end
 
   add_foreign_key "job_applications", "users"
+  add_foreign_key "job_requests", "job_applications"
 end

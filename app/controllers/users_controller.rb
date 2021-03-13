@@ -4,9 +4,12 @@ class UsersController < ApplicationController
 
   def show
   @user = User.find(params[:id])
+  @reviews = Review.where(user_id: @user.id).order("created_at DESC")
   end
+
   def index 
     @users = User.all 
+    @reviews = @user.reviews
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -14,6 +14,8 @@ class User < ApplicationRecord
   :length => {minimum: 6}
 
          has_many :job_applications
+       #  has_many :reviews
+         has_many :reviews, class_name: "Review", foreign_key: "user_id"
 
          mount_uploader :images, ImageUploader
          mount_uploader :file, FileUploader
@@ -31,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password, :password_confirmation, :remember_me, :images, :isAdmin, :isHost, :isCandidate, :country, :file)
+    params.require(:user).permit(:name, :email, :encrypted_password, :password_confirmation, :remember_me, :images, :isAdmin, :isHost, :isCandidate, :country, :file, :reviewee_id)
   end
 
 end

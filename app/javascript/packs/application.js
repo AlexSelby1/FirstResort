@@ -16,7 +16,6 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 8000); // Change image every 4 seconds
 }
-
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()

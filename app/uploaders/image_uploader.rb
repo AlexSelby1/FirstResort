@@ -25,8 +25,8 @@ class ImageUploader < CarrierWave::Uploader::Base
  #  process scale: [200, 300]
   #
   # def scale(width, height)
-  #   # do something
-  # end
+     # do something
+ #  end
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -37,8 +37,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [300, 300]
   end
 
-  version :profile do
-    process :circle
+
+  version :profile, :from => :icon do
+    process :circle 
+  end
+  version :icon do
+    process resize_to_fill: [50, 50]
   end
   
   version :default do
@@ -51,9 +55,9 @@ class ImageUploader < CarrierWave::Uploader::Base
    end
 
    def circle
+  
     manipulate! do |img|
       img.format 'png'
-
       width = img[:width]-2
       radius = width/2
 

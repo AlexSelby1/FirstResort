@@ -1,4 +1,12 @@
 FactoryBot.define do
+  factory :job_acceptance do
+    user { nil }
+    applicant_id { 1 }
+    confirmed { false }
+    default { "MyString" }
+     { "" }
+  end
+
   factory :message do
     
   end

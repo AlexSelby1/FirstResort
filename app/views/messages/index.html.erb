@@ -1,30 +1,31 @@
-<h1 class="title is-4">Message <%= @conversation.recipient.name %></h1>
-
+<div class = "message">
 <% if @over_ten %>
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
 <% end %>
-
-<section id="messages" class="mb4">
   <% @messages.each do |message| %>
     <% if message.body %>
+     <div id = "body">
       <% user = User.find(message.user_id) %>
-      <article class="message is-dark">
-        <div class="message-body">
-         
-          <div class="inline-block"><strong><%= user.name %></strong> <%= message.message_time %></div>
-          <div class="block pt4">
-            <div class="f4"><%= (message.body) %></div>
-          </div>
-        </div>
-      </article>
+         <% if user.images_url %>
+ <%= link_to (image_tag user.images_url(:icon)), user %>
+<% else %>
+<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", style: 'height:50px;width:50px;') %>
+ <% end %>
+          <strong><%= user.name %></strong>
+          <br>
+          <br>
+           <strong><%= (message.body) %></strong>
+           <br>
+           <br>
+           <%= message.message_time %>
+            </div>
     <% end %>
   <% end %>
-</section>
-
+</div>
 <%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body, class: "textarea" %>
+  <%= f.text_area :body, class: "textarea", placeholder: "Send message....." %>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="text-align-right">
-    <%= f.submit "Send message", class: "button is-link is-large mt3" %>
+    <%= f.submit "Send message", class: "button" %>
   </div>
 <% end %>
+</div>
