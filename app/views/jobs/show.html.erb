@@ -33,15 +33,16 @@
   <div class="profiletext">
 <p>
   <strong>Owner:</strong>
-  <%= @Job.user.name %>
+  <%= @job.user.name %>
 </p>
 <hr>
 </div>
  <% if ((user_is_admin) || (user_is_candidate)) %>
   <%= link_to "Message", conversations_path(sender_id: current_user.id, recipient_id: @job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+  <%= link_to "Apply", job_applications_path(applicant_id: current_user.id), :method => 'post',  :class => "button", :role => "button"  %>
 <% end %>
 <% if ((user_is_admin) || (user_is_owner)) %>
-<%= link_to 'Edit', edit_job_path(@jobn),  :class => "button", :role => "button"  %>
+<%= link_to 'Edit', edit_job_path(@job),  :class => "button", :role => "button"  %>
  <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
  <% end %>
  <%= link_to 'Back', jobs_path,  :class => "button", :role => "button"  %>

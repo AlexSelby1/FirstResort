@@ -14,8 +14,9 @@ errors[:images] << "should be less than 500KB" if images.size > 0.5.megabytes
 end
 
 belongs_to :user, optional: true, foreign_key: :user_id
-has_many :job_requests
-has_many :pending_applicants, -> {where confirmed: false}, class_name: 'JobRequests', foreign_key: "applicant_id"
 
+has_many :job_applications
+has_many :applicants, :through => :job_applications
+# has_many :job_applications, :class_name => "JobApplication", :foreign_key => "applicant_id"
 
 end

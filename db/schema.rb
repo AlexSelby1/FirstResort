@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_075603) do
+ActiveRecord::Schema.define(version: 2021_03_14_101112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.text "description"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,14 +29,14 @@ ActiveRecord::Schema.define(version: 2021_03_14_075603) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_requests", force: :cascade do |t|
-    t.bigint "job_id", null: false
-    t.integer "applicant_id"
-    t.boolean "accepted", default: false
-    t.boolean "rejected", default: false
+  create_table "job_applications", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "applicant_id"
+    t.boolean "accept", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_id"], name: "index_job_requests_on_job_id"
+    t.index ["applicant_id"], name: "index_job_applications_on_applicant_id"
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -97,6 +96,5 @@ ActiveRecord::Schema.define(version: 2021_03_14_075603) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "job_requests", "jobs", column: "job_id"
   add_foreign_key "jobs", "users"
 end

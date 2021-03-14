@@ -4,13 +4,13 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Jobs.order("created_at desc").page(params[:page]).per(3)
+    @jobs = Job.order("created_at desc").page(params[:page]).per(3)
     @categories = Category.all
   end
 
   # GET /jobs/1 or /jobs/1.json
   def show
-    @job = Jobs.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   # GET /jobs/new
@@ -89,6 +89,6 @@ class JobsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:id, :title, :country, :cat, :description, :images, :user_id)
+      params.require(:job).permit(:id, :title, :country, :category, :description, :images, :user_id)
     end
 end

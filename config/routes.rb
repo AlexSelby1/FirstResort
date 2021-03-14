@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :job_applications, only: [:create, :destroy]
   resources :categories
 
   devise_for :users, controllers: {
@@ -15,14 +15,12 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
  end
    
-   resources :jobs
-
+   resources :jobs 
    resources :reviews, except: [:index]
 
    resources :conversations do
     resources :messages
   end
-
 
   root 'static_pages#home'
 
@@ -37,6 +35,8 @@ Rails.application.routes.draw do
   get 'category/:title', to: 'static_pages#category'
 
   post '/search' => 'jobs#search'
+
+  #post 'conversations/new' => 'conversations#index'
 
   
 
