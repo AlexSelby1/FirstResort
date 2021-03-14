@@ -9,7 +9,7 @@ def user_is_candidate
     current_user && current_user.isCandidate
 end
 def user_is_owner
-    current_user && current_user.id == @job_application.user_id
+    current_user && current_user.id == @job.user_id
 end   
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_153018) do
+ActiveRecord::Schema.define(version: 2021_03_14_075603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,17 @@ ActiveRecord::Schema.define(version: 2021_03_12_153018) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_applications", force: :cascade do |t|
+  create_table "job_requests", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.integer "applicant_id"
+    t.boolean "accepted", default: false
+    t.boolean "rejected", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_job_requests_on_job_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "country"
     t.string "category"
@@ -39,17 +49,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_153018) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "images"
-    t.index ["user_id"], name: "index_job_applications_on_user_id"
-  end
-
-  create_table "job_requests", force: :cascade do |t|
-    t.bigint "job_application_id", null: false
-    t.integer "applicant_id"
-    t.boolean "accepted", default: false
-    t.boolean "rejected", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_application_id"], name: "index_job_requests_on_job_application_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -97,6 +97,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_153018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "job_applications", "users"
-  add_foreign_key "job_requests", "job_applications"
+  add_foreign_key "job_requests", "jobs", column: "job_id"
+  add_foreign_key "jobs", "users"
 end

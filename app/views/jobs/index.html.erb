@@ -3,18 +3,18 @@
 <%=render 'layouts/search'%>
 <%=render 'layouts/categories'%>
 <br>
-    <% @job_applications.each do |job_application| %>
+    <% @jobs.each do |job| %>
     <div class="jobContainer">
     <div id="img">
-    <% if job_application.images_url %>
-    <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
+    <% if job.images_url %>
+    <%= link_to (image_tag job.images_url(:thumb)), job %>
     <% else %>
     <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
     <% end %> 
     </div>
-    <p class="text"><%= job_application.category %></p><p class="text"> <%= job_application.country %></p>
-        <%= link_to (job_application.title), job_application, class: "jobsTitle" %>
-        <p><%= truncate(job_application.description,:ommision => "... Read More", :length => 300) %></p>
+    <p class="text"><%= job.category %></p><p class="text"> <%= job.country %></p>
+        <%= link_to (job.title), job, class: "jobsTitle" %>
+        <p><%= truncate(job.description,:ommision => "... Read More", :length => 300) %></p>
         <br>
         <br>      
         <div id="jobOption">   
@@ -26,9 +26,9 @@
     </div>
     <% end %>
     <div class="paginate">
-    <%= paginate @job_applications %>
+    <%= paginate @jobs %>
     </div>
     <% if ((user_is_admin) || (user_is_host)) %>
-<%= link_to 'New Job Application', new_job_application_path, :class =>"button", :role=>"button" %>
+<%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
 <% end %>
 </div>

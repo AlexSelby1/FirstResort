@@ -14,4 +14,8 @@ class Review < ApplicationRecord
     def blank_stars
         5 - rating.to_i
     end
+
+    def average_rating
+      Review.where(:user_id => self.user_id).average(:rating).to_d
+    end
 end

@@ -1,4 +1,4 @@
-class JobApplication < ApplicationRecord
+class Job < ApplicationRecord
 
   mount_uploader :images, ImageUploader
 

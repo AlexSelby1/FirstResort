@@ -11,6 +11,10 @@
  </div>
 <br>
   <div class="profiletext">
+<p><b> Rating:</b> <br><%= @avg_rating %></p>
+ <hr>
+ </div>
+  <div class="profiletext">
 <p><b> Email:</b> <br><%= @user.email %></p>
  <hr>
  </div>
@@ -34,28 +38,18 @@
  <p><%= link_to "View CV", asset_path(@user.file) %></p>
  <br>
  <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
-
+<br>
  <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to add the first!</h3>
           <%= link_to "Write Review", new_user_review_path(@user), class: "btn btn-danger" %>
         <% else %>
-        
           <% @reviews.each do |review| %>
-       
-            <div class="reviews">
-             <% review.rating.to_i.times do  %>
-            <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% review.blank_stars.to_i.times do %>
-           <span class="glyphicon glyphicon-star-empty"></span>
-              <% end %>
-              <%# Bootstrap has built in glyphicons that can help us accomplish this.%>
-
+                 <div id="reviews">
+           <h3>  <%= review.rating %>/5</h3>
             <h3><p>"<%= review.comment %>"</p></h3>
-              <%# <p><%= review.user.username %>  
               <h5>Posted by: <%= link_to "#{review.reviewer.name}", user_reviews_path(:user, review) %></h5>
-              </div>
-<% end %>
+                  </div>
+          <% end %>
       <% end %>
 
  </div>

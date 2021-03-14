@@ -12,7 +12,9 @@
        <% end %>
        <div id="end">
        <% if user_signed_in? %>
-       <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+       <%= link_to destroy_user_session_path, :method => :delete do %>
+       <li><i class="fa fa-sign-out fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
        <%= link_to user_path(current_user) do %>
        <li><i class="fa fa-user fa-2x fa-inverse" aria-hidden="true"></i></li>
        <% end %>

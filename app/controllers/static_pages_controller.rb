@@ -7,6 +7,6 @@ class StaticPagesController < ApplicationController
 def category
   @categories = Category.all
   catName=params[:title]
-  @job_applications = JobApplication.where("category like?", catName).order("created_at desc").page(params[:page]).per(3)
+  @jobs = Job.where("category like?", catName).order("created_at desc").page(params[:page]).per(3)
 end
 end

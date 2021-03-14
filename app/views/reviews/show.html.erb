@@ -1,2 +1,16 @@
-<%= @review.rating %>
-<%= @review.comment %>
+ <% if @reviews.blank? %>
+          <h3>No reviews just yet, would you like to add the first!</h3>
+          <%= link_to "Write Review", new_user_review_path(@user), class: "btn btn-danger" %>
+        <% else %>
+        
+          <% @reviews.each do |review| %>
+       
+            <div class="reviews">
+             <% review.rating %>
+
+            <h3><p>"<%= review.comment %>"</p></h3>
+              <%# <p><%= review.user.username %>  
+              <h5>Posted by: <%= link_to "#{review.reviewer.name}", user_reviews_path(:user, review) %></h5>
+              </div>
+<% end %>
+      <% end %>

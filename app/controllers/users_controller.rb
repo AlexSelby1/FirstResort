@@ -4,7 +4,13 @@ class UsersController < ApplicationController
 
   def show
   @user = User.find(params[:id])
-  @reviews = Review.where(user_id: @user.id).order("created_at DESC")
+  @reviews = Review.where(user_id: @user.id)
+
+  if @reviews.blank?
+    @avg_rating = 0
+  else
+    @avg_rating= @reviews.average(:rating).round(2)
+  end
   end
 
   def index 

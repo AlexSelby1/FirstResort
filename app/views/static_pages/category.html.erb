@@ -1,31 +1,31 @@
 <div id="jobs">
-<% if @job_applications.length == 0 %>
+<% if @jobs.length == 0 %>
 <br/>
 <h2>There are currently no jobs in this category</h2>
 <% end %>
 <%=render 'layouts/search'%>
 <%=render 'layouts/categories'%>
-    <% @job_applications.each do |job_application| %>
+    <% @jobs.each do |job| %>
     <div class="jobContainer">
     <div id="img">
-        <% if job_application.images_url %>
-    <%= link_to (image_tag job_application.images_url(:thumb)), job_application %>
+        <% if job.images_url %>
+    <%= link_to (image_tag job.images_url(:thumb)), job %>
     <% end %> 
     </div>
-    <p class="text"><%= job_application.category %></p>
-        <h1><%= link_to (job_application.title), job_application %></h1>
-         <p> <%= job_application.description %></p>
-         <p class="text"> <%= job_application.country %></p>
+    <p class="text"><%= job.category %></p>
+        <h1><%= link_to (job.title), job %></h1>
+         <p> <%= job.description %></p>
+         <p class="text"> <%= job.country %></p>
         <br>
         <br>      
         <div id="jobOption">   
-        <%= link_to 'Edit', edit_job_application_path(job_application) %>
-        <%= link_to 'Delete', job_application, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_job_path(job) %>
+        <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Contact', "/" %>
         <%= link_to 'Apply', "/" %>
   </div>
     </div>
     <% end %>
-    <%= paginate @job_applications %>
-    <%= link_to 'New Job Application', new_job_application_path %>
+    <%= paginate @jobs %>
+    <%= link_to 'New Job Application', new_job_path %>
 </div>

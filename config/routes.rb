@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   resources :categories
 
   devise_for :users, controllers: {
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
  end
    
-   resources :job_applications
+   resources :jobs
 
    resources :reviews, except: [:index]
 
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get '/home' => 'static_pages#home'
-  get '/jobs' => 'job_applications#index'
+  get '/jobs' => 'jobs#index'
 
   get '/users/:id', to: 'users#show'
 
@@ -37,7 +36,7 @@ Rails.application.routes.draw do
 
   get 'category/:title', to: 'static_pages#category'
 
-  post '/search' => 'job_applications#search'
+  post '/search' => 'jobs#search'
 
   
 

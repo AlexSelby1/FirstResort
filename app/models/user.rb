@@ -13,7 +13,7 @@ class User < ApplicationRecord
   :presence => true, 
   :length => {minimum: 6}
 
-         has_many :job_applications
+         has_many :jobs
        #  has_many :reviews
          has_many :reviews, class_name: "Review", foreign_key: "user_id"
 

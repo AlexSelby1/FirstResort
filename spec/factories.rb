@@ -27,7 +27,7 @@ FactoryBot.define do
      
     end
 
-    factory :job_application do
+    factory :job do
       title { "Barman needed" }
       country { "Ireland" }
       cat { "Bar" }

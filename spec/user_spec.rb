@@ -4,5 +4,5 @@ require "rails_helper"
       it { should validate_presence_of :name }
       it { should validate_presence_of :email }
       it { should validate_presence_of :password }
-      it { should have_many :job_applications}
+      it { should have_many :jobs}
     end

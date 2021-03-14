@@ -2,23 +2,23 @@ require "application_system_test_case"
 
 class JobApplicationsTest < ApplicationSystemTestCase
   setup do
-    @job_application = job_applications(:one)
+    @job = jobs(:one)
   end
 
   test "visiting the index" do
-    visit job_applications_url
+    visit jobs_url
     assert_selector "h1", text: "Job Applications"
   end
 
   test "creating a Job application" do
-    visit job_applications_url
+    visit jobs_url
     click_on "New Job Application"
 
-    fill_in "Category", with: @job_application.category
-    fill_in "Country", with: @job_application.country
-    fill_in "Description", with: @job_application.description
-    fill_in "Title", with: @job_application.title
-    fill_in "User", with: @job_application.user_id
+    fill_in "Category", with: @job.category
+    fill_in "Country", with: @job.country
+    fill_in "Description", with: @job.description
+    fill_in "Title", with: @job.title
+    fill_in "User", with: @job.user_id
     click_on "Create Job application"
 
     assert_text "Job application was successfully created"
@@ -26,14 +26,14 @@ class JobApplicationsTest < ApplicationSystemTestCase
   end
 
   test "updating a Job application" do
-    visit job_applications_url
+    visit jobs_url
     click_on "Edit", match: :first
 
-    fill_in "Category", with: @job_application.category
-    fill_in "Country", with: @job_application.country
-    fill_in "Description", with: @job_application.description
-    fill_in "Title", with: @job_application.title
-    fill_in "User", with: @job_application.user_id
+    fill_in "Category", with: @job.category
+    fill_in "Country", with: @job.country
+    fill_in "Description", with: @job.description
+    fill_in "Title", with: @job.title
+    fill_in "User", with: @job.user_id
     click_on "Update Job application"
 
     assert_text "Job application was successfully updated"
@@ -41,7 +41,7 @@ class JobApplicationsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Job application" do
-    visit job_applications_url
+    visit jobs_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

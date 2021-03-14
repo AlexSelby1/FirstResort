@@ -15,7 +15,7 @@ one:
  # description: MyText
  # user: two
 
-job_application_1:
+job_1:
   id: 1
   title: Barperson
   country: Ireland

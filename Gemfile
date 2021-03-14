@@ -48,6 +48,8 @@ gem 'kaminari'
 gem 'country_select'
 # used for icons
 gem "font-awesome-rails"
+# used for star ratings
+ gem 'ratyrate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
