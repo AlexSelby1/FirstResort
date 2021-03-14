@@ -1,5 +1,0 @@
-class RemoveDurationFromJobApplications < ActiveRecord::Migration[6.0]
-  def change
-    remove_column :jobs, :duration
-  end
-end

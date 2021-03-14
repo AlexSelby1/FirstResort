@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
+class JobsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     get '/users/sign_in'
@@ -19,11 +19,11 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create job" do
-    assert_difference('JobApplication.count') do
+    assert_difference('Job.count') do
       post jobs_url, params: { job: { cat: @job.cat, country: @job.country, description: @job.description, title: @job.title, user_id: @job.user_id } }
     end
 
-    assert_redirected_to job_url(JobApplication.last)
+    assert_redirected_to job_url(Job.last)
   end
 
   test "should show job" do
@@ -42,7 +42,7 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy job" do
-    assert_difference('JobApplication.count', -1) do
+    assert_difference('Job.count', -1) do
       delete job_url(@job)
     end
 

@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class JobApplicationsTest < ApplicationSystemTestCase
+class JobsTest < ApplicationSystemTestCase
   setup do
     @job = jobs(:one)
   end

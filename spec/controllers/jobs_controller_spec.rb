@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe JobsController, :type => :controller do
+RSpec.describe JobsController, :focus, :type => :controller do
     describe "GET index" do
         it "should get index page" do
           get :index
