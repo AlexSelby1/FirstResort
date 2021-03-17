@@ -32,7 +32,7 @@ class JobApplicationsController < ApplicationController
   def toggle_accept
     @job = Job.find(params[:job_id])
     @job_application = JobApplication.find(params[:id])
-    @job_application.toggle(:accept).save
+    @job_application.toggle(:isAccepted).save
     redirect_to job_job_applications_path(@job), notice: "Accepted Applicant."
   end
 

@@ -1,10 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
   after_action :set_host
-
+  
 
     private 
     def set_host
-      User.where(isHost: true).update(isCandidate: false)
+      User.where(isHost: false).update_all(isCandidate: true)
     end
    
     def sign_up_params

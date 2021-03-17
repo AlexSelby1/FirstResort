@@ -4,8 +4,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <div class="inside-logged">
-
-<%= f.label :isHost, "Host", :value => true %>
+<%= f.label :isHost, "Host", :value => true  %>
 <%= f.radio_button :isHost, true %>
 <%= f.label :isHost, "Candidate", :value => false %>
 <%= f.radio_button :isHost, false %>
