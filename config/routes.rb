@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :job_applications, only: [:create, :destroy]
   resources :categories
 
   devise_for :users, controllers: {
@@ -15,12 +14,25 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
  end
    
-   resources :jobs 
+   resources :jobs do
+    resources :job_applications, only: [:index, :create, :destroy] do
+    member do
+    post :toggle_accept
+    end
+  end
+  end
+
    resources :reviews, except: [:index]
 
    resources :conversations do
     resources :messages
   end
+
+ # resources :job_applications do
+ #   member do
+ #     post :toggle_accept
+ #   end
+ # end
 
   root 'static_pages#home'
 
@@ -29,6 +41,8 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show'
 
+  get '/jobs/:id/job_applications/:id' => 'job_applications#destroy'
+
   get '/contacts/new' => 'contacts#new'
   get '/contacts' => 'contacts#create'
 
@@ -36,8 +50,6 @@ Rails.application.routes.draw do
 
   post '/search' => 'jobs#search'
 
-  #post 'conversations/new' => 'conversations#index'
-
+  get '/jobs/:job_id/job_applications/:id/toggle_accept' => 'job_applications#toggle_accept'
   
-
 end

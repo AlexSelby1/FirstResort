@@ -19,8 +19,9 @@
         <br>      
         <div id="jobOption">   
         <% if ((user_is_admin) || (user_is_candidate)) %>
-          <%= link_to "Apply", job_applications_path(job_id: job.id, sender_id: current_user.id, recipient_id: job.user.id), :method => 'post',  :class => "button", :role => "button"  %>
+          <%= link_to "Apply", job_job_applications_path(job_id: job.id, sender_id: current_user.id, recipient_id: job.user.id), :method => 'post',  :class => "button", :role => "button"  %>
         <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+        <%= link_to 'View Applications', job_job_applications_path(job_id: job.id),  :class => "button", :role => "button"  %>
         <% end %>
   </div>
     </div>
