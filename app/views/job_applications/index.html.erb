@@ -1,0 +1,13 @@
+ <% @job_application.each do |job_application| %>
+      <div class ="applications">
+   <h3><p><%= job_application.applicant_id %></p></h3>
+                 <h3>  <%= job_application.id %></h3>
+           <h3>  <%= job_application.job.title %></h3>
+          
+              <h3><p><%= job_application.applicant.name %></p></h3>
+              <%= link_to 'View', job_application.applicant, :class => "button", :role => "button" %>
+              <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+              <%= link_to 'Accept', toggle_accept_job_job_application_path(job_application.job,job_application), remote: true, method: :post, :class => "button", :role => "button" %>
+              <%= link_to "Reject", [job_application.job,job_application], method: :delete, data: { confirm: 'Are you sure?' },  :class => "button", :role => "button"  %>
+</div>          
+<% end %>
