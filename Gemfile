@@ -49,7 +49,10 @@ gem 'country_select'
 # used for icons
 gem "font-awesome-rails"
 # used for star ratings
- gem 'ratyrate'
+# gem 'ratyrate'
+# Text editor
+gem 'trix'
+gem 'actiontext'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -57,7 +60,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.2'
+
 end
 
 group :development do

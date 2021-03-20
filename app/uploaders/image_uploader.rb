@@ -38,9 +38,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
-  version :profile, :from => :icon do
-    process :circle 
-  end
+#  version :profile, :from => :icon do
+#    process :circle 
+#  end
   version :icon do
     process resize_to_fill: [50, 50]
   end

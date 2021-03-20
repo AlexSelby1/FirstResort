@@ -1,5 +1,7 @@
 /*
  *= require font-awesome
+ *= require trix
+ *= require actiontext
  */
 
 /* Header Section */
@@ -252,7 +254,7 @@ li a {
 	.button:hover {
 		background-color: #05386B;
 	}
-
+	.hidden { display: none; }
 
 	/*Log in & Sign in */
 	.logged {
@@ -343,11 +345,15 @@ li a {
 	padding-right: 10px;
 	
 	
+	
 }
 .jobContainer #img {
 float:left;
 padding-right: 15px;
-overflow: auto;
+margin-bottom: 10px;
+max-height: 200px;
+
+
 }
 .jobContainer #img:hover {
 opacity:0.7;
@@ -379,6 +385,7 @@ p.text{
 	background-color: #f5f5f5;
 	border-top: #f5f5f5 solid 0.5px;
 	padding:15px;
+	
 	}
 
 .showJob{
@@ -490,4 +497,14 @@ width: 80%;
 	margin-left: 10%;
 	width: 80%;
 	height: 10vw;
+}
+.applications {
+	text-align: center;
+	color: #5cdb95;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	display: inline-block;
+	width: 22%;
+	padding:10px;
 }
