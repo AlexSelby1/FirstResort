@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authorize_admin, only: :index
+    include UserHelper
 
   def show
   @user = User.find(params[:id])
   @reviews = Review.where(user_id: @user.id)
+  @job_applications = JobApplication.where(applicant_id: @user.id, isAccepted: true)
 
   if @reviews.blank?
     @avg_rating = 0
@@ -24,7 +26,11 @@ class UsersController < ApplicationController
   end
   
   def authorize_admin
-      redirect_to root_path, status: 401 unless current_user.admin
+      redirect_to root_path, status: 401 unless current_user.isAdmin
       #redirects to previous page
   end
+  def authorize_host
+    redirect_to root_path, status: 401 unless current_user.isHost
+    #redirects to previous page
+end
 end

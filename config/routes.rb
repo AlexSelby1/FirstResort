@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
  end
    
+
    resources :jobs do
-    resources :job_applications, only: [:index, :create, :destroy] do
+    resources :job_applications, only: [:create, :destroy, :index] do
+      get '/jobs/:job_id/job_applications?:recipient_id&sender_id' => 'job_applications#create'
     member do
     post :toggle_accept
     end
@@ -49,7 +51,8 @@ Rails.application.routes.draw do
   get 'category/:title', to: 'static_pages#category'
 
   post '/search' => 'jobs#search'
-
   get '/jobs/:job_id/job_applications/:id/toggle_accept' => 'job_applications#toggle_accept'
+
+#  get '/jobs/:job_id/job_applications?:recipient_id&sender_id' => 'job_applications#create'
   
 end

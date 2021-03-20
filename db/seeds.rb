@@ -12,3 +12,4 @@ Category.create(:id => 2, :title=>'Floor', :image=>'wait.jpeg')
 Category.create(:id => 3, :title=>'Kitchen', :image=>'chef.jpeg')
 Category.create(:id => 4, :title=>'Cafe', :image=>'Cafe.jpeg')
 puts "Success: Category data loaded"
+

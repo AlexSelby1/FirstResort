@@ -8,12 +8,13 @@ class Job < ApplicationRecord
   validates :title, :presence => true, :length =>{:maximum => 50}
   validates :description, :presence => true, :length => {:within => 10..2000}
 
+
 private
 def image_size_validation
 errors[:images] << "should be less than 500KB" if images.size > 0.5.megabytes
 end
 
-belongs_to :user, optional: true, foreign_key: :user_id
+belongs_to :user, foreign_key: :user_id
 
 has_many :job_applications
 has_many :applicants, :through => :job_applications

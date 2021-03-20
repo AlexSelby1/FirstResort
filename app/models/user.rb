@@ -16,7 +16,7 @@ class User < ApplicationRecord
          has_many :jobs
          has_many :job_applications, class_name: "JobApplication", foreign_key: "applicant_id"
          has_many :jobs, through: :job_applications
-
+     
          has_many :reviews, class_name: "Review", foreign_key: "user_id"
 
          mount_uploader :images, ImageUploader
@@ -29,6 +29,7 @@ class User < ApplicationRecord
          validates_inclusion_of :isHost, :in => [true, false]
          validates_inclusion_of :isCandidate, :in => [true, false]
 
+         
   private
   def image_size_validation
     errors[:images] << "should be less than 500KB" if images.size > 0.5.megabytes
@@ -37,5 +38,4 @@ class User < ApplicationRecord
   def user_params
     params.require(:user).permit(:name, :email, :encrypted_password, :password_confirmation, :remember_me, :images, :isAdmin, :isHost, :isCandidate, :country, :file)
   end
-
 end

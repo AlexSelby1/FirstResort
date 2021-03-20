@@ -22,8 +22,6 @@
     <% end %>
   <% end %>
 </div>
-        <%= link_to "Accept", "/", :class => "button", :role => "button"  %>
-        <%= link_to 'Reject', "/",  :class => "button", :role => "button"  %>
          <%= link_to 'Video', conversation_path(@conversation.id),  :class => "button", :role => "button"  %>
 <%= form_for [@conversation, @message] do |f| %>
   <%= f.text_area :body, class: "textarea", placeholder: "Send message....." %>

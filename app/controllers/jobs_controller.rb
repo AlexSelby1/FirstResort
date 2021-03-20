@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, except: [:index, :show, :search]
-
+  include UserHelper, JobApplicationHelper
   # GET /jobs or /jobs.json
   def index
     @jobs = Job.order("created_at desc").page(params[:page]).per(3)
@@ -79,8 +79,6 @@ class JobsController < ApplicationController
     catName=params[:title]
     @jobs = Job.where("category LIKE?", catName).order("created_at desc").page(params[:page]).per(3)
   end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
