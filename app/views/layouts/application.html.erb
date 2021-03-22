@@ -4,20 +4,21 @@
    <title> <%= yield(:title) %> FirstResort </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <%= javascript_pack_tag 'application'%>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-
         <% if notice %>
         <div id="notice">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
         <p class="notice"><%= notice %></p>
         </div>
         <% elsif alert %>
         <div id="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
        <p class="alert"><%= alert %></p>
        </div>
        <% end %>

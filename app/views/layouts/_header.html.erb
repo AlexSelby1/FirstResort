@@ -7,8 +7,14 @@
       <%= link_to "/" do %>
        <li><i class="fa fa-home fa-2x fa-inverse" aria-hidden="true"></i></li>
        <% end %>
+        <% if user_is_host %>
+      <%= link_to "/candidates" do %>
+       <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
+        <% end %>
+       <% else %>
       <%= link_to "/jobs" do %>
        <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
+       <% end %>
        <% end %>
        <div id="end">
        <% if user_signed_in? %>

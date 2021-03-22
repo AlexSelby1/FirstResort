@@ -4,14 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  validates :email, 
-  :presence => true, 
-  :uniqueness => true
+  validates :name, presence:  { message: '*Please enter a name' }
+  
+  validates :email, presence:  { message: '*Please enter an email' }
+  validates :email, uniqueness: { message: '*Email is already taken' }
 
-  validates :password, 
-  :presence => true, 
-  :length => {minimum: 6}
+  validates :password, presence: { message: '*Please enter a password' }, on: :new
+  validates :password, :length => {minimum: 6, message: '*Password is too short' }, on: :new
+  validates :password_confirmation, presence: { message: '*Please confirm your password' }, on: :new
+
+  has_rich_text :body
 
          has_many :jobs
          has_many :job_applications, class_name: "JobApplication", foreign_key: "applicant_id"
@@ -36,6 +38,6 @@ class User < ApplicationRecord
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password, :password_confirmation, :remember_me, :images, :isAdmin, :isHost, :isCandidate, :country, :file)
+    params.require(:user).permit(:name, :email, :encrypted_password, :password_confirmation, :remember_me, :body, :content, :images, :isAdmin, :isHost, :isCandidate, :country, :file)
   end
 end

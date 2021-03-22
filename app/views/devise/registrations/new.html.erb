@@ -2,37 +2,33 @@
 <div class="loginbox">
 <h2>Sign Up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: users_sign_up_path) do |f| %>
 <div class="inside-logged">
-<%= f.label :isHost, "Host", :value => true  %>
-<%= f.radio_button :isHost, true %>
-<%= f.label :isHost, "Candidate", :value => false %>
-<%= f.radio_button :isHost, false %>
 
+<%= f.label :isHost, "Host", :value => true  %>
+<%= f.radio_button :isHost, true, :checked => true %>
+
+<%= f.label :isHost, "Candidate", :value => false %>
+<%= f.radio_button :isHost, false, :checked => false %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
     <%= f.label "Image" %><br><br>
     <%= f.file_field :images %>
     <% if f.object.images? %>
@@ -41,7 +37,6 @@
       <%= f.check_box :remove_images %> 
     <% end %>
   <div class="actions">
-      <br>
     <%= f.submit "Sign Up" %>
   </div>
 <% end %>
