@@ -1,0 +1,40 @@
+<div id="jobs">
+<% if @jobs.length == 0 %>
+<br>
+<h2>No Jobs were found to match your search</h2>
+<% end %>
+<%=render 'layouts/search'%>
+<%=render 'layouts/categories'%>
+    <% @jobs.each do |job| %>
+    <div class="jobContainer">
+    <div id="img">
+        <% if job.images_url %>
+    <%= link_to (image_tag job.images_url(:thumb)), job %>
+    <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
+    <% end %>  
+    </div>
+    <p class="text"><%= job.category %></p>
+        <h1><%= link_to (job.title), job %></h1>
+         <p> <%= job.description %></p>
+         <p class="text"> <%= job.country %></p>
+        <br>
+        <br>      
+        <div id="jobOption">   
+        <% if (!user_signed_in?)  %>
+        <%= button_to "Apply", job_job_applications_path(job_id: job.id), :method => 'post',  :class => "button", :role => "button"  %>
+         <% elsif applied_to_this_job(job) %>   
+         <%= button_to "Applied ✓", "/", :class => "button", :role => "button"  %>
+         <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+        <% elsif ((user_is_admin) || (user_is_candidate) || (!applied_to_this_job(job))) %>
+          <%= button_to "Apply", job_job_applications_path(job_id: job.id, sender_id: current_user.id, recipient_id: job.user.id), :method => :post, :class => "button", :role => "button"  %>
+        <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+        <% elsif ((user_is_admin) || (user_is_owner(job))) %>
+        <%= link_to 'View Applications', job_job_applications_path(job_id: job.id), :class => "button", :role => "button"  %>
+        <% end %>
+  </div>
+  </div>
+    </div>
+    <% end %>
+    <%= paginate @jobs %>
+</div>

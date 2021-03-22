@@ -1,0 +1,32 @@
+<%= form_with(model: job) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.country_select :country, { include_blank: 'Select a country' } %>
+  </div>
+
+  <div class="field">
+   <%= form.select :category, ['Select Category','Bar','Floor', 'Kitchen', 'Cafe'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content  %>
+  </div>
+<br>
+        <%= form.file_field :images %>
+    <% if form.object.images? %>
+      <%= image_tag form.object.images.thumb.url %>
+      <%= form.label "Remove Image" %>
+      <%= form.check_box :remove_images %> 
+    <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= javascript_pack_tag 'application'%>

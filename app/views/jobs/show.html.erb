@@ -1,0 +1,53 @@
+<div class="showJob">
+<br>
+    <h1><%= @job.title %></h1>
+  <div id="img">
+        <% if @job.images_url %>
+    <%= image_tag @job.images_url(:default) %>
+        <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:600px;width:800px;') %>
+    <% end %> 
+    </div>
+<p>
+  <div class="profiletext">
+  <hr>
+  <strong>Country:</strong>
+  <%= @job.country %>
+</p>
+<hr>
+</div>
+<p>
+  <div class="profiletext">
+  <strong>Category:</strong>
+  <%= @job.category %>
+</p>
+<hr>
+</div>
+<p>
+  <div class="profiletext">
+  <strong>Description:</strong><br>
+  <%= @job.description %>
+</p>
+<hr>
+</div>
+  <div class="profiletext">
+<p>
+  <strong>Owner:</strong>
+  <%= @job.user.name %>
+</p>
+<hr>
+</div>
+         <% if applied_to_this_job(@job) %>   
+         <%= button_to "Applied ✓", "/", :class => "button", :role => "button"  %>
+         <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+ <% elsif ((user_is_admin) || (user_is_candidate)) ||  (!user_signed_in?) %>
+          <%= button_to "Apply", job_job_applications_path(job_id: @job.id, sender_id: current_user.id, recipient_id: @job.user.id), :method => 'post',  :class => "button", :role => "button"  %>
+        <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @job.user.id), method: 'post',  :class => "button", :role => "button"  %>
+<% elsif ((user_is_admin) || (user_is_owner(@job))) %>
+  <%= link_to 'View Applications', job_job_applications_path(job_id: @job.id),  :class => "button", :role => "button"  %>
+<%= link_to 'Edit', edit_job_path(@job),  :class => "button", :role => "button"  %>
+ <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+ <% end %>
+ <%= link_to 'Back', jobs_path,  :class => "button", :role => "button"  %>
+</div>
+</div>
