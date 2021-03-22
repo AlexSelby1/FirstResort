@@ -1,0 +1,36 @@
+<%= simple_form_for @contact do |f| %>
+    <div class="field">
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name, required: true %>
+  </div>
+<div class="field">
+    <%= f.label :email %>
+     <br>
+    <%= f.text_field :email, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %>
+            <br>
+  					<select id="subjects" name="subject">
+  						<option value="reset">Choose Subject</option>
+  						<option value="events">Orders</option>
+  						<option value="tickets">Payments</option>
+  						<option value="artists">Artists</option>
+  						<option value="0ther">Other</option>
+  					</select>
+  </div>
+
+  <div class="field">
+    <%= f.label :Message %>
+     <br>
+    <%= f.text_area :message, :rows =>10, style: 'width:90%;' %>
+  </div>
+  <div class="hidden">
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, hint: 'leave blank' %>      
+  </div>
+  <div class="actions">
+    <%= link_to 'Submit', '/', :class => "button", :role => "button" %>
+  </div>
+  <% end %>
