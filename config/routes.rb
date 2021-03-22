@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get '/jobs' => 'jobs#index'
 
   get '/users/:id', to: 'users#show'
+  get '/candidates', to: 'users#showCandidate'
 
   get '/jobs/:id/job_applications/:id' => 'job_applications#destroy'
 
@@ -52,7 +53,5 @@ Rails.application.routes.draw do
 
   post '/search' => 'jobs#search'
   get '/jobs/:job_id/job_applications/:id/toggle_accept' => 'job_applications#toggle_accept'
-
-#  get '/jobs/:job_id/job_applications?:recipient_id&sender_id' => 'job_applications#create'
   
 end

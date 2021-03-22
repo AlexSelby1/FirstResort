@@ -4,20 +4,24 @@ class UsersController < ApplicationController
     include UserHelper
 
   def show
-  @user = User.find(params[:id])
-  @reviews = Review.where(user_id: @user.id)
-  @job_applications = JobApplication.where(applicant_id: @user.id, isAccepted: true)
+    @user = User.find(params[:id])
+    @reviews = Review.where(user_id: @user.id).page(params[:page]).per(3)
+    @job_applications = JobApplication.where(applicant_id: @user.id, isAccepted: true)
+    @jobs = Job.where(user_id: @user.id).page(params[:page]).per(3)
 
   if @reviews.blank?
     @avg_rating = 0
   else
-    @avg_rating= @reviews.average(:rating).round(2)
+    @avg_rating = @reviews.average(:rating).round(2)
   end
   end
 
   def index 
     @users = User.all 
-    @reviews = @user.reviews
+  end
+
+  def showCandidate
+    @users = User.where(isCandidate: true, isAdmin: false)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -32,5 +36,5 @@ class UsersController < ApplicationController
   def authorize_host
     redirect_to root_path, status: 401 unless current_user.isHost
     #redirects to previous page
-end
+  end
 end

@@ -5,28 +5,50 @@
     <%= image_tag ("hotel.jpeg"), style: 'width:100%;height:30vw;' %>
     </div>
     <div class="centered">Discover your next journey </div>
-    <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+         <% if user_is_host %>
+     <div class="centered-button"><%= link_to "Discover", "/candidates", class: 'slideLink' %></div>
+     <% else %>
+          <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+      <% end %>
   </div>
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("Cafe.jpeg"), style: 'width:100%;height:30vw;'%>
    </div>
      <div class="centered">Discover your next journey</div>
-     <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+     <% if user_is_host %>
+     <div class="centered-button"><%= link_to "Discover", "/candidates", class: 'slideLink' %></div>
+     <% else %>
+          <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+      <% end %>
   </div>
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("cocktail1.jpeg"), style: 'width:100%;height:30vw;' %>
      </div>
      <div class="centered">Discover your next journey</div>
-     <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+          <% if user_is_host %>
+     <div class="centered-button"><%= link_to "Discover", "/candidates", class: 'slideLink' %></div>
+     <% else %>
+          <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+      <% end %>
   </div>
   <div class="mySlides fade">
    <div id="img">
      <%= image_tag ("kitchen.jpeg"),style: 'width:100%;height:30vw;' %>
      </div>
      <div class="centered">Discover your next journey</div>
-     <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+         <% if user_is_host %>
+     <div class="centered-button"><%= link_to "Discover", "/candidates", class: 'slideLink' %></div>
+     <% else %>
+          <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
+      <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'application'%>
+<div class="home">
+<h1> Welcome to FirstResort </h1>
+<p>Join the FirstResort community today to discover new experiences with opportunities around the globe.</p>
+<button onclick="myFunction()">Host</button>
+<button onclick="uncheck()">Uncheck "Red"</button>
+<p id="demo"></p>
+</div>

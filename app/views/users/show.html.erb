@@ -39,6 +39,7 @@
  <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
 <br>
 
+<h2> Reviews </h2>
  <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to add the first!</h3>
           <%= link_to "Write Review", new_user_review_path(@user), class: "btn btn-danger" %>
@@ -48,9 +49,15 @@
            <h3>  <%= review.rating %>/5</h3>
             <h3><p>"<%= review.comment %>"</p></h3>
               <h5>Posted by: <%= link_to "#{review.reviewer.name}", user_reviews_path(:user, review) %></h5>
-                  </div>
+                  </div>      
           <% end %>
+              <div class="paginate">
+    <%= paginate @reviews %>
+    </div>
       <% end %>
+      <br>
+        <% if ((user_is_admin) || (user_is_candidate)) %>
+        <div class = "applications">
        <% @job_applications.each do |job_application| %>
    <h3><p><%= job_application.applicant_id %></p></h3>
                  <h3>  <%= job_application.id %></h3>
@@ -60,7 +67,31 @@
               <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
                <%= link_to "Write Review", new_user_review_path(job_application.job.user), :class => "button", :role => "button" %>
               </div>  
+              </div>
          <% end %>
+         <% end %>
+          <% if ((user_is_admin) || (user_is_host)) %>
+          <h1> Jobs </h1>
+         <% @jobs.each do |job| %>
+          <div class ="applications">
+        <p> <%= link_to (job.title), job %></p>
 
- </div>
+
+     <% if job.images_url %>
+    <%= link_to (image_tag job.images_url(:thumb)), job %>
+    <% else %>
+    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
+    <% end %> 
+      <p>  <%= link_to 'View Applicants', job_job_applications_path(job_id: job.id), :class => "button", :role => "button"  %> </p>
+        <br>
+         </div>
+        <% end %>
+    <div class="paginate">
+    <%= paginate @jobs %>
+    </div>
+    <% end %>
+       </div>
+   <% if ((user_is_admin) || (user_is_host)) %>
+<%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
+<% end %>
 </div>
