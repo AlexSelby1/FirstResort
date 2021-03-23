@@ -44,12 +44,12 @@
           <div class="centered-button"><%= link_to "Discover", "/jobs", class: 'slideLink' %></div>
       <% end %>
   </div>
+  <%= javascript_pack_tag 'slideshow'%>
 </div>
 <div class="home">
 <h1> Welcome to FirstResort </h1>
-<p>Join the FirstResort community today to discover new experiences with opportunities around the globe.</p>
-<button onclick="myFunction()">Host</button>
-<button onclick="uncheck()">Uncheck "Red"</button>
+<h3> Join the FirstResort community today to discover new experiences with opportunities around the globe. </h3>
+<p>The hospitality industry is one of the fastest-growing industries of today. You can reap the benefits of connecting with workers in the hospitality industry.</p>
+<button id="btn" onclick="HostShow()">Host</button><button id="btn" onclick="CandidateShow()">Candidate</button>
 <p id="demo"></p>
-<%= javascript_pack_tag 'application' %>
 </div>

@@ -85,12 +85,38 @@ li a {
 .home{
 	text-align: center;
 	min-height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%
+}
+.home #btn{
+	background-color: #05386B;
+	color:white;
+	width: 15%;
+	height: 2vw;
+	
+}
+
+.home #btn:hover{
+	background-color: white;
+	color: #05386B;
+	width: 15%;
+	height: 2vw;
+}
+
+#demo{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 /* Container*/
 .container {
     width: 100%;
     min-height: 50vw;
+	margin-left: 5px;
+	margin-right: 5px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
