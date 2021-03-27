@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-    
+    require 'mail_form'
     def new
         @contact = Contact.new
     end
@@ -8,11 +8,15 @@ class ContactsController < ApplicationController
        @contact = Contact.new(params[:contact])
        @contact.request = request 
         if @contact.deliver
-           flash.now[:error] = nil
-           redirect_to root_path, notice: 'Message sent successfully'
+           redirect_to home, notice: 'Message sent successfully'
         else
-            flash.now[:error] = 'Message is undeliverable'
-            render :new
+           redirect_to root_path, alert:'Message is undeliverable'
         end
     end
+
+    private
+
+    def contact_params
+      params.require(:contact).permit(:name, :email, :subject, :message)
+    end  
 end

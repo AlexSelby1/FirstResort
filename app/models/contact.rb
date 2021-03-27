@@ -1,11 +1,13 @@
-class Contact < MailForm::Base
+class Contact < MailForm::Base 
+
+    include MailForm::Delivery
+    
     attribute :name, :validate =>true
     attribute :email, :validate => /\A[^@\s]+@[^@\s]+\z/
     attribute :message, :validate => true
     attribute :nickname, :captcha => true #spambot
      attribute :subject, :validate => true
-    
-    
+
     def headers 
         {
         :subject => :subject,

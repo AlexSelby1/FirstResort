@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :password, :length => {minimum: 6, message: '*Password is too short' }, on: :new
   validates :password_confirmation, presence: { message: '*Please confirm your password' }, on: :new
 
-  has_rich_text :body
+  has_rich_text :bio
 
          has_many :jobs
          has_many :job_applications, class_name: "JobApplication", foreign_key: "applicant_id"
@@ -30,7 +30,6 @@ class User < ApplicationRecord
 
          validates_inclusion_of :isHost, :in => [true, false]
          validates_inclusion_of :isCandidate, :in => [true, false]
-
          
   private
   def image_size_validation

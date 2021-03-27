@@ -1,4 +1,5 @@
 <%= simple_form_for @contact do |f| %>
+<div class="forms">
     <div class="field">
     <%= f.label :name %>
     <br>
@@ -8,6 +9,7 @@
     <%= f.label :email %>
      <br>
     <%= f.text_field :email, required: true %>
+  </div>
   </div>
   <div class="field">
     <%= f.label :subject %>
@@ -31,6 +33,6 @@
     <%= f.text_field :nickname, hint: 'leave blank' %>      
   </div>
   <div class="actions">
-    <%= link_to 'Submit', '/', :class => "button", :role => "button" %>
+    <%= f.button :submit, :class => "button", :role => "button" %>
   </div>
   <% end %>

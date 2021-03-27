@@ -13,10 +13,11 @@
     </div>
   <% end %>
   <%= f.hidden_field :user_id, :value => @review.user_id %>
-  <div class="field"> 
-    <h3><%= f.label :rating %><br></h3>
-    <%= f.number_field :rating, max: 5, min:1 %>
-   </div>  
+
+  <div class="field">
+    <div id="star-rating"></div>
+  </div>  
+
   <div class="field">
     <h3><%= f.label :comment %><br></h3>
     <%= f.text_area :comment, placeholder: "Comment" %>
