@@ -2,7 +2,7 @@ class Job < ApplicationRecord
 
   mount_uploader :images, ImageUploader
 
-  has_rich_text :content
+  has_rich_text :description
 
   validates_processing_of :images
   validate :image_size_validation

@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get '/jobs/:id/job_applications/:id' => 'job_applications#destroy'
 
   get '/contacts/new' => 'contacts#new'
-  get '/contacts' => 'contacts#create'
+  post '/contacts' => 'contacts#create'
 
   get 'category/:title', to: 'static_pages#category'
 

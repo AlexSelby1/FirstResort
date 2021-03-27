@@ -67,9 +67,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   ActionMailer::Base.smtp_settings = {
-    
-    :user_name => "a.selb121@gmail.com",
-    :password => "galway2310",
+    user_name: ENV['GOOGLE_EMAIL'],
+    password: ENV['GOOGLE_PWD'],
     :address => 'smtp.gmail.com',
     :port => 587,
     :authentication => :plain,

@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, except: [:index, :show, :search]
   include UserHelper, JobApplicationHelper
+
   # GET /jobs or /jobs.json
   def index
     @jobs = Job.order("created_at desc").page(params[:page]).per(3)
@@ -53,6 +54,7 @@ class JobsController < ApplicationController
 
   # DELETE /jobs/1 or /jobs/1.json
   def destroy
+    @job = Job.find(params[:id])
     @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: "Job was successfully destroyed." }
