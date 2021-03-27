@@ -1,4 +1,6 @@
-$(function() {
+console.log("Hello from ratings.js");
+
+document.addEventListener("turbolinks:load", function() {
   $('.star-rating-show').raty({
   path: '/assets/',
   readOnly: true,
@@ -7,7 +9,8 @@ $(function() {
 }
 });
 });
-$(function() {
+
+document.addEventListener("turbolinks:load", function() {
   $('#star-rating').raty({
     path: '/assets/',
     scoreName: 'review[rating]'
