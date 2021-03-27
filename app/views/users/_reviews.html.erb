@@ -1,0 +1,14 @@
+<h2> Reviews </h2>
+ <% if @reviews.blank? %>
+          <h3>No reviews just yet!</h3>
+        <% else %>
+          <% @reviews.each do |review| %>
+                 <div class="reviews">
+                  <h3>  <%= review.rating %>/5</h3>
+           <div class="star-rating-show" data-score= <%= review.rating %> ></div>
+            <h3><p>"<%= review.comment %>"</p></h3>
+              <h5>Posted by: <%= link_to "#{review.reviewer.name}", user_reviews_path(:user, review) %></h5>
+                  </div>      
+          <% end %>
+
+      <% end %>
