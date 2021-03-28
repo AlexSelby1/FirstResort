@@ -38,7 +38,7 @@ gem 'devise','~> 4.7.3'
 gem 'carrierwave', '~> 2.1.0'
 gem 'mini_magick', '~> 4.11'
 # gem 'image_magick'
-# gem 'wdm', '>= 0.1.0'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 #sending mail from forms
 gem 'mail_form'
 gem 'simple_form'
