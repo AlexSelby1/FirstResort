@@ -12,9 +12,15 @@ class MessagesController < ApplicationController
           @over_ten = false
           @messages = @conversation.messages
         end
+        
+        if @messages.last
+          if @messages.last.user_id != current_user.id
+           @messages.last.read_at = Time.now
+          end
+        end
     
         @message = @conversation.messages.new
-      end
+    end
     
       def create
         @message = @conversation.messages.new(message_params)
@@ -32,7 +38,7 @@ class MessagesController < ApplicationController
       private
     
         def message_params
-          params.require(:message).permit(:body, :user_id)
+          params.require(:message).permit(:body, :user_id, :read_at)
         end
     
         def find_conversation

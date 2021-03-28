@@ -18,7 +18,7 @@
     </div>
     <p class="text"><%= job.category %></p><p class="text"> <%= job.country %></p>
         <%= link_to (job.title), job, class: "jobsTitle" %>
-        <p><%= truncate(job.description,:ommision => "... Read More", :length => 300) %></p>
+       <p><%= truncate(job.description.to_s, :length => 300) %></p>
         <br>
         <br>      
         <div id="jobOption">   

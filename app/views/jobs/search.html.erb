@@ -16,7 +16,7 @@
     </div>
     <p class="text"><%= job.category %></p>
         <h1><%= link_to (job.title), job %></h1>
-         <p> <%= job.description %></p>
+         <p><%= truncate(job.description.to_s, :length => 300) %></p>
          <p class="text"> <%= job.country %></p>
         <br>
         <br>      

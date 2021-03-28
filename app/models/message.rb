@@ -3,7 +3,12 @@ class Message < ApplicationRecord
     belongs_to :user
     validates_presence_of :body, :conversation_id, :user_id
   
+
+    
     def message_time
       created_at.strftime("%d/%m/%y at %l:%M %p")
+    end
+    def mark_as_read
+      read_at.strftime("%d/%m/%y at %l:%M %p")
     end
 end

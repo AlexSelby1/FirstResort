@@ -8,7 +8,7 @@
  body {    
     margin: 0 !important;
     padding: 0 !important;
-	background-color: #f5f5f5;
+	/*background-color: #f5f5f5;*/
 }
 *{
 	box-sizing: border-box;
@@ -169,7 +169,6 @@ li a {
 /* Hide the images by default */
 .mySlides {
   display: none;
-
 }
 
 .mySlides #img{
@@ -568,10 +567,9 @@ p.text{
  .catIm:hover{
 	 opacity:0.7;
  }
-
+ 
  .cat .catLink{
 	 position: absolute;
-
  }
 
 /* Search */
@@ -616,7 +614,10 @@ width: 80%;
 	margin: 10px 0;
 	overflow: auto;
 }
-
+.messages #read{
+	float:right;
+	color: green;
+}
 .textarea{
 	margin-left: 10%;
 	width: 80%;
