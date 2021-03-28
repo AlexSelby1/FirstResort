@@ -38,7 +38,7 @@ gem 'devise','~> 4.7.3'
 gem 'carrierwave', '~> 2.1.0'
 gem 'mini_magick', '~> 4.11'
 # gem 'image_magick'
-gem 'wdm', '>= 0.1.0'
+# gem 'wdm', '>= 0.1.0'
 #sending mail from forms
 gem 'mail_form'
 gem 'simple_form'
@@ -53,9 +53,6 @@ gem "font-awesome-rails"
 # Text editor
 gem 'trix'
 gem 'actiontext'
-
-require 'rbconfig'
-gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
