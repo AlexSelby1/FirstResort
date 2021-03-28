@@ -54,6 +54,9 @@ gem "font-awesome-rails"
 gem 'trix'
 gem 'actiontext'
 
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
