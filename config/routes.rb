@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
    resources :users do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :edit]
  end
    
 

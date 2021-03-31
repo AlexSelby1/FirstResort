@@ -3,10 +3,14 @@
 <h1><%= @user.name %></h1>
 
 <% if @user.images_url %>
- <%= image_tag @user.images_url(:pic) %>
+ <%= image_tag @user.images_url(:thumb) %>
 <% else %>
-<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", style: 'height:200px;width:200;') %>
+<%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", style: 'height:200px;width:200px;') %>
  <% end %>
+ <br>
+ <% if (user_profile) %>
+  <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
+  <% end %>
  </div>
 <br>
 <br>
@@ -41,15 +45,16 @@
  <br>
  <p><%= link_to "View CV", asset_path(@user.file) %></p>
  <br>
- <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
+   <%= render 'users/reviews'  %>
+   <br>
+ <% if (user_profile) %>
 <br>
-
-  <%= render 'users/reviews'  %>
-      <br>
+<div class="applications">
  <%= render 'users/applications'  %>
-
   <%= render 'users/jobs'  %>
    <% if ((user_is_admin) || (user_is_host)) %>
 <%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
+  </div>
+<% end %>
 <% end %>
 </div>

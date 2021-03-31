@@ -27,7 +27,7 @@
               <h3><p><%= job_application.job.user %></p></h3>
               <%= link_to 'View', job_application.job.user, :class => "button", :role => "button" %>
               <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
-               <%= link_to "Write Review", new_user_review_path(job_application.applicant), :class => "button", :role => "button" %>
+                <%= create_or_edit_review_path(@review, current_user) %>
               </div>  
          <% end %>
  <% end %>

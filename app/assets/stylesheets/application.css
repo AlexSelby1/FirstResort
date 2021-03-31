@@ -128,8 +128,7 @@ li a {
 	color: rgb(105, 104, 104);
     width: 100%;
     min-height: 50vw;
-	margin-left: 5px;
-	margin-right: 5px;
+
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
@@ -144,7 +143,8 @@ li a {
 	min-height: 80px;
 	background-color: #05386B;
 	width: 100%;
-	margin-top: 10px;
+	margin: 0;
+	
 	overflow: auto;
 }
 
@@ -243,19 +243,18 @@ li a {
   .forms{
 	  display:grid;
 	  grid-template-columns: 1fr 1fr;
-	  grid-gap: 1em;
-	  justify-items: stretch;
-	  align-items: stretch;
-	  width:100%;
+	  grid-gap:1em;
+	  width:95%;
   }
 
   .formbox{
-	  width: 80%;
+	  width: 70%;
 	  color: black;
 	  margin-left: auto;
 	  margin-right: auto;
   }
   .rich{
+	  width:90%;
 	  text-align: left !important;
   }
   .trix-button-group--file-tools {
@@ -625,7 +624,6 @@ width: 80%;
 }
 .applications {
 	text-align: center;
-	color: #5cdb95;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 10px;

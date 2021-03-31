@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
 
     def new
         @review = current_user.reviews.build
-     #  @user = User.find(params[:reviewee_id])
+   
     end
 
     def edit

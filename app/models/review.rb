@@ -11,6 +11,9 @@ class Review < ApplicationRecord
     validates :rating, presence: true
     validates :comment, presence: true, length: { maximum: 500 }
 
+    validates :user_id, uniqueness: { scope: :reviewer_id, alert: "You've reviewed this user!" }
+
+
     def average_rating
       Review.where(:user_id => self.user_id).average(:rating).to_d
     end

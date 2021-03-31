@@ -1,10 +1,20 @@
 <%= form_with(model: job) do |form| %>
+<div class="forms">
   <div class="field">
     <%= form.label :title %>
         <br>
     <%= form.text_field :title %>
   </div>
-<div class="forms">
+  <div class="field">
+   <%= form.label :image %>
+ <br>
+        <%= form.file_field :images %>
+    <% if form.object.images? %>
+      <%= image_tag form.object.images.thumb.url %>
+      <%= form.label "Remove Image" %>
+      <%= form.check_box :remove_images %> 
+    <% end %>
+    </div>
   <div class="field">
     <%= form.label :country %>
     <br>
@@ -25,14 +35,6 @@
   </div>
   </div>
 <br>
- <%= form.label :image %>
- <br>
-        <%= form.file_field :images %>
-    <% if form.object.images? %>
-      <%= image_tag form.object.images.thumb.url %>
-      <%= form.label "Remove Image" %>
-      <%= form.check_box :remove_images %> 
-    <% end %>
     <br>
   <div class="actions">
     <%= form.submit %>
