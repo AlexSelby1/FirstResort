@@ -1,21 +1,22 @@
+  <!-- Search bar -->
 <div class ="searchbox">
-<p><b><i> Find your ideal FirstResort Work</i></b></p>
-<%= form_tag("/search", :method => "post") do %>
-<div id="searchTitle">
-<%= text_field_tag(:q, nil, :placeholder => "Search...") %>
-</div>
-<div id="searchCountry">
-<%= country_select(nil, :c, {include_blank: 'Search by country'} ) %>
-</div>
-<div id="submit">
-<%= submit_tag("Show Results 🔍") %>
-</div>
+    <p><b><i> Find your ideal FirstResort Work</i></b></p>
+    <%= form_tag("/search", :method => "post") do %>
+    <div id="searchTitle">
+        <%= text_field_tag(:q, nil, :placeholder => "Search...") %>
+    </div>
+    <div id="searchCountry">
+        <%= country_select(nil, :c, {include_blank: 'Search by country'} ) %>
+    </div>
+    <div id="submit">
+        <%= submit_tag("Show Results 🔍") %>
+    </div>
 <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
 </div>

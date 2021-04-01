@@ -4,27 +4,31 @@
    <title> <%= yield(:title) %> FirstResort </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+      <!-- Including Javascript-->
     <script src="/assets/jquery.js" type="text/javascript"></script>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-        <% if notice %>
-        <div id="notice">
+    <!-- Alerts & Notices -->
+    <% if notice %>
+      <div id="notice">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
         <p class="notice"><%= notice %></p>
-        </div>
-        <% elsif alert %>
-        <div id="alert">
+      </div>
+    <% elsif alert %>
+      <div id="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-       <p class="alert"><%= alert %></p>
-       </div>
-       <% end %>
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+     <!-- Header & Footer for all pages -->
   <%= render 'layouts/header' %>
       <div class="container">
-       <%= yield %>
-       </div>
+        <%= yield %>
+      </div>
   <%= render 'layouts/footer'  %>
   </body>
 </html>

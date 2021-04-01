@@ -1,19 +1,16 @@
 class Review < ApplicationRecord
 
-   # attr_accessor :reviewee_id
-
+    # Associations
     belongs_to :reviewer, class_name: "User"
     belongs_to :user, class_name: "User"
   
-  #  scope :reviews_for, ->(user) { where("for_user = ?", user) }
-  #  scope :reviews_by,  ->(user) { where("by_user = ?", user) }
-
+    # Validations
     validates :rating, presence: true
     validates :comment, presence: true, length: { maximum: 500 }
-
     validates :user_id, uniqueness: { scope: :reviewer_id, alert: "You've reviewed this user!" }
 
 
+    # Method for average rating of all reviews for a user
     def average_rating
       Review.where(:user_id => self.user_id).average(:rating).to_d
     end

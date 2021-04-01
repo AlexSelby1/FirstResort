@@ -3,53 +3,48 @@ class ReviewsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user
 
-    def index 
-        @reviews = Review.all
-    end
-    
+    # GET user/1/reviews
     def show
     end
 
+    # GET user/1/reviews/new
     def new
         @review = current_user.reviews.build
    
     end
 
-    def edit
-    end
-
     def create
-   #     @user = User.find(params[:reviewee_id])
         @review = current_user.reviews.build(review_params)
         @review.reviewer_id = current_user.id
         @review.user_id = @user.id
-   #     @review = current_user.reviews.create!(reviewer_id: current_user.id, reviewee_id: @user.id, review: params(review_params))
-
-        if @review.save
-            redirect_to root_path, notice: 'Review was successfully created'
-        else 
+            if @review.save
+                redirect_to root_path, notice: 'Review was successfully created'
+            else 
             render 'new'
-        end
+            end
     end
 
+    # GET user/1/reviews/edit
+    def edit
+    end
+
+    # PATCH/PUT user/1/reviews/1
     def update
         @review.update(review_params)
     end
-
+    
+   # DELETE user/1/reviews/1
     def destroy
         @review.destroy
     end
 
-    private
-    def set_review
-       @review = Review.find(params[:id])
-    end
-
+private
+ # Only allow a list of trusted parameters through.
    def review_params
    params.require(:review).permit(:rating, :comment, :reviewee_id, :user_id).merge(user_id: params[:user_id])
-  # params.require(:review).permit(:rating, :comment)
    end
 
+# Find user by id
    def set_user
     @user = User.find(params[:user_id])
   end

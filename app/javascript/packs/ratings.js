@@ -1,5 +1,7 @@
+/* Test */
 console.log("Hello from ratings.js");
 
+/* display users rating */
 document.addEventListener("turbolinks:load", function() {
   $('.star-rating-show').raty({
   path: '/assets/',
@@ -9,7 +11,7 @@ document.addEventListener("turbolinks:load", function() {
 }
 });
 });
-
+/* create users rating */
 document.addEventListener("turbolinks:load", function() {
   $('#star-rating').raty({
     path: '/assets/',

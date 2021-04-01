@@ -1,37 +1,39 @@
+  <!-- Dyanmic header view that changes depending on user -->
 <header class="headSec">
-<div id ="nav">
-      <ul>
+  <div id ="nav">
+    <ul>
       <div id="logo">
-      <%= link_to image_tag("LogoWhite.png", alt:"Logo"), "/" %>
+        <%= link_to image_tag("LogoWhite.png", alt:"Logo"), "/" %>
       </div>
       <%= link_to "/" do %>
-       <li><i class="fa fa-home fa-2x fa-inverse" aria-hidden="true"></i></li>
-       <% end %>
-        <% if user_is_host %>
-      <%= link_to "/candidates" do %>
-       <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
+        <li><i class="fa fa-home fa-2x fa-inverse" aria-hidden="true"></i></li>
+      <% end %>
+      <% if user_is_host %>
+        <%= link_to "/candidates" do %>
+          <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
         <% end %>
-       <% else %>
-      <%= link_to "/jobs" do %>
-       <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
-       <% end %>
-       <% end %>
-       <div id="end">
-       <% if user_signed_in? %>
-       <%= link_to destroy_user_session_path, :method => :delete do %>
-       <li><i class="fa fa-sign-out fa-2x fa-inverse" aria-hidden="true"></i></li>
-       <% end %>
-       <%= link_to user_path(current_user) do %>
-       <li><i class="fa fa-user fa-2x fa-inverse" aria-hidden="true"></i></li>
-       <% end %>
-        <%= link_to conversations_path do%>
-       <li><i class="fa fa-comment fa-2x fa-inverse" aria-hidden="true"></i></li>
-       <% end %>
-       <% else %>
-       <li><%= link_to "Sign Up", new_user_registration_path %></li>
-       <li><%= link_to "Log In", new_user_session_path %></li>
-       <% end %>
-       </ul>
-       </div> 
-</div>
+      <% else %>
+        <%= link_to "/jobs" do %>
+          <li><i class="fa fa-search fa-2x fa-inverse" aria-hidden="true"></i></li>
+        <% end %>
+      <% end %>
+
+      <div id="end">
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, :method => :delete do %>
+            <li><i class="fa fa-sign-out fa-2x fa-inverse" aria-hidden="true"></i></li>
+          <% end %>
+          <%= link_to user_path(current_user) do %>
+            <li><i class="fa fa-user fa-2x fa-inverse" aria-hidden="true"></i></li>
+          <% end %>
+          <%= link_to conversations_path do%>
+            <li><i class="fa fa-comment fa-2x fa-inverse" aria-hidden="true"></i></li>
+          <% end %>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+        <% end %>
+    </ul>
+      </div> 
+  </div>
 </header>
