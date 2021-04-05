@@ -8,8 +8,8 @@
 
 Category.delete_all
 Category.create(:id => 1, :title=>'Bar', :image=>'barCat.jpeg')
-Category.create(:id => 2, :title=>'Floor', :image=>'wait.jpeg')
-Category.create(:id => 3, :title=>'Kitchen', :image=>'chef.jpeg')
-Category.create(:id => 4, :title=>'Cafe', :image=>'Cafe.jpeg')
+Category.create(:id => 2, :title=>'Floor', :image=>'waitCat.jpeg')
+Category.create(:id => 3, :title=>'Kitchen', :image=>'chefCat.jpeg')
+Category.create(:id => 4, :title=>'Cafe', :image=>'cafeCat.jpeg')
 puts "Success: Category data loaded"
 
