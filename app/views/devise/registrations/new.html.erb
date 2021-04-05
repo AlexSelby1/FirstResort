@@ -29,13 +29,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-    <%= f.label "Image" %><br><br>
-    <%= f.file_field :images %>
-    <% if f.object.images? %>
-      <%= image_tag f.object.images.thumb.url %>
-      <%= f.label "Remove Image" %>
-      <%= f.check_box :remove_images %> 
-    <% end %>
   <div class="actions">
     <%= f.submit "Sign Up" %>
   </div>
