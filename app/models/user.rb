@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :reviews, class_name: "Review", foreign_key: "user_id"
   has_rich_text :bio
 
+  # Uploader to upload images and files.
+  mount_uploader :images, ImageUploader
+  mount_uploader :file, FileUploader
+
   # Validations
   validates :name, presence:  { message: '*Please enter a name' }
   validates :email, presence:  { message: '*Please enter an email' }
@@ -23,11 +27,14 @@ class User < ApplicationRecord
   validates_inclusion_of :isHost, :in => [true, false]
   validates_inclusion_of :isCandidate, :in => [true, false]
 
+  # Sets candidate boolean to true
+  after_create do
+    User.where(isHost: false).update(isCandidate: true)
+  end
 
-  # Uploader to upload images and files.
-  mount_uploader :images, ImageUploader
-  mount_uploader :file, FileUploader
-
+  def avg_rating
+    reviews.average(:rating)
+  end 
 
   private
   # Validates image file size.

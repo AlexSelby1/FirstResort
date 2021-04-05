@@ -1,13 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  after_action :set_host
-  
-
     private 
-    # Method to change candidate to true when host is false
-    def set_host
-      User.where(isHost: false).update_all(isCandidate: true)
-    end
-    
    # Only allow a list of trusted parameters through.
     def sign_up_params
      params.require(:user).permit(:name, :email, :password, :password_confirmation, :images, :isHost, :isCandidate)
