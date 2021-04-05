@@ -16,15 +16,15 @@
     </div>
     <p class="text"><%= job.category %></p>
         <h1><%= link_to (job.title), job %></h1>
-         <p><%= truncate(job.description.to_s, :length => 300) %></p>
+         <p><%= truncate(strip_tags(job.description.to_s), length: 300) %></p>
          <p class="text"> <%= job.country %></p>
         <br>
         <br>      
-        <div id="jobOption">   
+        <div class="jobOption">   
         <% if (!user_signed_in?)  %>
-        <%= button_to "Apply", job_job_applications_path(job_id: job.id), :method => 'post',  :class => "button", :role => "button"  %>
+         <%= button_to "Apply", job_job_applications_path(job_id: job.id), :method => 'post',  :class => "button", :role => "button"  %>
          <% elsif applied_to_this_job(job) %>   
-         <%= button_to "Applied ✓", "/", :class => "button", :role => "button"  %>
+        <div class="applied" >Applied ✓</div>
          <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: job.user.id), method: 'post',  :class => "button", :role => "button"  %>
         <% elsif ((user_is_admin) || (user_is_candidate) || (!applied_to_this_job(job))) %>
           <%= button_to "Apply", job_job_applications_path(job_id: job.id, sender_id: current_user.id, recipient_id: job.user.id), :method => :post, :class => "button", :role => "button"  %>

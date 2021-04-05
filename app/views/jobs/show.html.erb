@@ -37,8 +37,11 @@
 </p>
 <hr>
 </div>
-         <% if applied_to_this_job(@job) %>   
-         <%= button_to "Applied ✓", "/", :class => "button", :role => "button"  %>
+<div class = "jobOption">
+        <% if (!user_signed_in?)  %>
+        <%= button_to "Apply", job_job_applications_path(job_id: @job.id), :method => 'post',  :class => "button", :role => "button"  %>
+         <% elsif applied_to_this_job(@job) %>   
+        <div class="applied" >Applied ✓</div>
          <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @job.user.id), method: 'post',  :class => "button", :role => "button"  %>
  <% elsif ((user_is_admin) || (user_is_candidate)) ||  (!user_signed_in?) %>
           <%= button_to "Apply", job_job_applications_path(job_id: @job.id, sender_id: current_user.id, recipient_id: @job.user.id), :method => 'post',  :class => "button", :role => "button"  %>
@@ -48,6 +51,7 @@
 <%= link_to 'Edit', edit_job_path(@job),  :class => "button", :role => "button"  %>
  <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
  <% end %>
- <%= link_to 'Back', jobs_path,  :class => "button", :role => "button"  %>
+ <%= link_to 'Back', jobs_path,  :class => "button", :role => "button", :method => "get"  %>
+</div>
 </div>
 </div>

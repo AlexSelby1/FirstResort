@@ -3,8 +3,7 @@
 <p><b><i>Choose by category</i></b></p>
 <% @categories.each do |category| %>
 <div class="cat">
-<%= image_tag category.image, :class=>"catIm" %>
-<p><a href="/category/<%= category.title %>" class="button"><%= category.title %></a></p>
+<a href="/category/<%= category.title %>"> <%= image_tag category.image, :class=>"catIm" %> </a>
 </div>
 <% end %>
 </div>

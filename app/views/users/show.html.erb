@@ -1,5 +1,5 @@
 <div class="profile">
-<div class="profilepic">
+<aside>
 <h1><%= @user.name %></h1>
 
 <% if @user.images_url %>
@@ -11,15 +11,14 @@
  <% if (user_profile) %>
   <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
   <% end %>
- </div>
+ </aside>
 <br>
 <br>
 <br>
+<section>
   <div class="profiletext">
-<p><b> Rating:</b> <br>
-<br><%= @avg_rating %></p>
+<p><b> Rating:</b> 
 <div class="star-rating-show" data-score= <%= @avg_rating %> ></div>
-
  <hr>
  </div>
   <div class="profiletext">
@@ -45,6 +44,9 @@
  <br>
  <p><%= link_to "View CV", asset_path(@user.file) %></p>
  <br>
+ </div>
+ </section>
+ <div class=jobContainer>
    <%= render 'users/reviews'  %>
    <br>
  <% if (user_profile) %>
@@ -55,6 +57,7 @@
    <% if ((user_is_admin) || (user_is_host)) %>
 <%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
   </div>
+  </div>
 <% end %>
 <% end %>
-</div>
+

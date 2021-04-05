@@ -1,12 +1,12 @@
 <div id="jobs">
-<% if @jobs.length == 0 %>
-<br/>
-<h2>There are currently no jobs in this category</h2>
-<% end %>
 
 <%=render 'layouts/search'%>
 <%=render 'layouts/categories'%>
 <br>
+<% if @jobs.length == 0 %>
+<br/>
+<h2>There are currently no jobs in this category</h2>
+<% end %>
     <% @jobs.each do |job| %>
     <div class="jobContainer">
     <div id="img">
@@ -21,11 +21,11 @@
        <p><%= truncate(job.description.to_s, :length => 300) %></p>
         <br>
         <br>      
-        <div id="jobOption">   
+        <div class="jobOption">   
         <% if (!user_signed_in?)  %>
         <%= button_to "Apply", job_job_applications_path(job_id: job.id), :method => 'post',  :class => "button", :role => "button"  %>
          <% elsif applied_to_this_job(job) %>   
-         <%= button_to "Applied ✓", "/", :class => "button", :role => "button"  %>
+        <div class="applied" >Applied ✓</div>
          <%= button_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: job.user.id), method: 'post',  :class => "button", :role => "button"  %>
         <% elsif ((user_is_admin) || (user_is_candidate) || (!applied_to_this_job(job))) %>
           <%= button_to "Apply", job_job_applications_path(job_id: job.id, sender_id: current_user.id, recipient_id: job.user.id), :method => :post, :class => "button", :role => "button"  %>
