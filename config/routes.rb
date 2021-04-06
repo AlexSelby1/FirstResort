@@ -30,12 +30,6 @@ Rails.application.routes.draw do
     resources :messages
   end
 
- # resources :job_applications do
- #   member do
- #     post :toggle_accept
- #   end
- # end
-
   root 'static_pages#home'
 
   get '/home' => 'static_pages#home'
@@ -51,7 +45,9 @@ Rails.application.routes.draw do
 
   get 'category/:title', to: 'static_pages#category'
 
-  post '/search' => 'jobs#search'
+  post '/jobs/search' => 'jobs#search'
+  post '/candidates/search' => 'users#search'
+  
   get '/jobs/:job_id/job_applications/:id/toggle_accept' => 'job_applications#toggle_accept'
   
 end

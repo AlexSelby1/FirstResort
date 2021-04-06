@@ -1,0 +1,18 @@
+<%=render 'users/search'%>
+<% if @users.length == 0 %>
+<br/>
+<h2>There are currently no candidates </h2>
+<% end %>
+<% @users.each do |user| %>
+<div class ="applications">
+    <h1><%= user.name %></h1>
+    <% if user.images_url %>
+        <%= image_tag user.images_url(:thumb) %>
+    <% else %>
+        <%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", width:"200px", height:"200px") %>
+    <% end %>
+        <p><%= user.email %></p>
+        <%= link_to 'View', user, :class => "button", :role => "button" %>
+        <%= link_to 'Message', new_conversation_path(sender_id: current_user.id, recipient_id: user.id), method: "get", :class => "button", :role => "button" %>
+    </div>
+ <% end %>

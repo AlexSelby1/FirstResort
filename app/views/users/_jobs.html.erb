@@ -3,8 +3,9 @@
           <% if @jobs.blank? %>
           <h3>No jobs just yet, would you like to add the first!</h3>
         <% else %>
+         
          <% @jobs.each do |job| %>
-           <div class ="applications">
+          <div class ="reviews">
         <p> <%= link_to (job.title), job %></p>
      <% if job.images_url %>
     <%= link_to (image_tag job.images_url(:thumb)), job %>
@@ -13,8 +14,9 @@
     <% end %> 
       <p>  <%= link_to 'View Applicants', job_job_applications_path(job_id: job.id), :class => "button", :role => "button"  %> </p>
         <br>
-             </div>
+            
         <% end %>
+         </div>
         <% end %>
     <div class="paginate">
     <%= paginate @jobs %>

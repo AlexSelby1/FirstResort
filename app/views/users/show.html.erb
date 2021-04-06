@@ -17,7 +17,7 @@
 <br>
 <section>
   <div class="profiletext">
-<p><b> Rating:</b> 
+<p><b> Rating:</b> <br>
 <div class="star-rating-show" data-score= <%= @avg_rating %> ></div>
  <hr>
  </div>
@@ -46,18 +46,20 @@
  <br>
  </div>
  </section>
- <div class=jobContainer>
+ <div class=profileMain>
    <%= render 'users/reviews'  %>
    <br>
+   <hr>
  <% if (user_profile) %>
 <br>
-<div class="applications">
+ <% if (user_is_candidate) %>
  <%= render 'users/applications'  %>
-  <%= render 'users/jobs'  %>
-   <% if ((user_is_admin) || (user_is_host)) %>
-<%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
-  </div>
-  </div>
+ <% elsif (user_is_host) %>
+ <%= render 'users/jobs'  %>
+ </div>
+ <% end %>
+   <% if ((user_is_admin) || (user_is_host)) %>  
+  <%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
 <% end %>
 <% end %>
-
+</div>

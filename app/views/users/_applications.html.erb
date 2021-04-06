@@ -1,13 +1,17 @@
-        <% if ((user_is_admin) || (user_is_candidate)) %>
-        <div class = "applications">
+
+       <% if ((user_is_admin) || (user_is_candidate)) %>
+       <h2> Applications </h2>
+          <% if @job_applications.blank? %>
+            <h3>No applications just yet, would you like to add the first!</h3>
+        <% else %>
+        <div class = "reviews">
        <% @job_applications.each do |job_application| %>
-   <h3><p><%= job_application.applicant_id %></p></h3>
-                 <h3>  <%= job_application.id %></h3>
            <h3>  <%= job_application.job.title %></h3>
-              <h3><p><%= job_application.applicant.name %></p></h3>
-              <%= link_to 'View', job_application.job.user, :class => "button", :role => "button" %>
-              <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
-               <%= create_or_edit_review_path(@review, current_user) %>
+            <%= image_tag job_application.job.images_url(:thumb)%><br>
+              <%= link_to job_application.applicant.name, job_application.job.user %><br>
+               <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+               <%= create_review_path(@review, current_user) %>
          <% end %>     
+         <% end %>
          <% end %>
            </div>
