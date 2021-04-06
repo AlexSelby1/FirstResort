@@ -5,9 +5,7 @@ class JobApplicationsController < ApplicationController
    # GET /job_applications
   def index
     @job = Job.find(params[:job_id])
-   # @user = User.all
     @job_applications = @job.job_applications
-  #  @applicants = JobApplication.where(:applicant_id => user.id)
   end
  # POST /job_applications
   def create

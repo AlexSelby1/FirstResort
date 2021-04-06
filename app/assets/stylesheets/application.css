@@ -126,7 +126,7 @@ li a {
 .container {
 	color: rgb(105, 104, 104);
     width: 100%;
-    min-height: 50vw;
+    min-height: 48.8vw;
 
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
@@ -328,7 +328,7 @@ li a {
 		border: none;
 		color: black;
 		border-radius: 5px;
-		padding: 14px 20px;
+		padding: 5px 10px;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
@@ -336,6 +336,7 @@ li a {
 		margin: 4px 2px;
 		cursor: pointer;
 	}
+
 	.button:hover {
 		background-color: #05386B;
 		color: white
@@ -358,6 +359,7 @@ li a {
 		
 	/*Log in & Sign in */
 	.logged {
+		
 		height:100%;
 		position:absolute;
 		width:100%;
@@ -365,14 +367,15 @@ li a {
 		padding: 0;
 		opacity:0.7;
 		background-image: url("bar.png");
-		background-size: cover;
+		background-size: auto;
 		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.loginbox{
 		text-align: center;
-		width:450px;
-		height:650px;
+		width:23.5vw;
+		height:33.85vw;
 		background:white;
 		color: black;
 		top:50%;
@@ -466,7 +469,8 @@ li a {
 	.reviews{
 		display:inline-block;
 		padding: 20px 20px;
-		margin-top: 100px;
+		margin-top: 25px;
+		
 	}
 	.profile h1{
 		color: #022140;
@@ -485,18 +489,34 @@ li a {
 		width: 60%;
 		text-align: left;
 	}
+	.profileMain{
+		text-align: center;
+		width: 100%;
+	}
 
 /* Job Applications */
 
 .jobs {
 	width: 100%;
-
+}
+.jobOption #button{
+		background-color: #f79e02;
+		border: none;
+		color: black;
+		border-radius: 5px;
+		padding: 14px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 12px;
+		margin: 4px 2px;
+		cursor: pointer;
+	
 }
 .jobContainer {
 	border: #f5f5f5 solid 0.5px;
 	overflow: auto;
 	text-align: left;
-	float:center;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 40px;
@@ -524,11 +544,11 @@ opacity:0.7;
 }
 
 p.text{
-	color: #5cdb95;
+	color: #05386B;
 	font-style: italic;
 	font-weight: bold;
 	font-size: 15px;
-	text-align: left;
+	text-align: right;
 	padding-right: 5px;
 }
 
@@ -653,7 +673,23 @@ p.text{
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background-color: #4CAF50;
+	background-color: #05386B;
+	color: white;
+}
+#conversations th:nth-child(2) {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	width:15%;
+	text-align: left;
+	background-color: #05386B;
+	color: white;
+}
+#conversations th:nth-child(3) {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	width:85%;
+	text-align: left;
+	background-color: #05386B;
 	color: white;
 }
 .messages{
@@ -680,16 +716,26 @@ width: 80%;
 	color: green;
 }
 .textarea{
-	margin-left: 10%;
-	width: 80%;
+	width: 100%;
 	height: 10vw;
 }
-.applications {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
+.messages input[type=submit] {
+	width: 10%;
 	display: inline-block;
-	width: 22%;
-	padding:10px;
+	background-color: #f79e02;
+	color: black;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float:right;
+	}
+	
+.applications{
+	display: inline-block;
+	text-align:center;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding:20px 30px;
 }

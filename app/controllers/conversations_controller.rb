@@ -2,8 +2,7 @@ class ConversationsController < ApplicationController
     before_action :authenticate_user!
   # GET /conversations 
     def index
-      @users = User.all
-      @conversations = Conversation.all
+      @conversations = Conversation.all.includes(:messages)
     end
 
   # GET /conversations/new

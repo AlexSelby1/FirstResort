@@ -19,13 +19,4 @@ module UserHelper
     def user_profile
         params[:id].to_i == current_user.id   
     end 
-  # Checking to see if the reviewer has already reviewed the user
-    def create_or_edit_review_path(review, current_user)
-        return '' if current_user.blank?
-      
-        if current_user.reviews.present?  
-        else
-            link_to "Write Review", new_user_review_path(job_application.job.user), :class => "button", :role => "button"
-        end 
-      end
 end
