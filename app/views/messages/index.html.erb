@@ -1,5 +1,6 @@
+
 <div class = "messages">
-        <%= link_to 'Video', conversation_path(@conversation.id),  :class => "button", :role => "button"  %>
+<h3>Messages</h3>
 <% if @over_ten %>
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
 <% end %>
@@ -13,7 +14,7 @@
 <%= image_tag("/assets/blank-profile-picture.png", alt:"ProfilePic", style: 'height:50px;width:50px;') %>
  <% end %>
         <br>
-           <strong><%= user.name %>: </strong><%= (message.body) %>
+          <strong> <%= link_to (user.name), user %>: </strong><%= (message.body) %>
            <br>
            <br>
            <%= message.message_time %>
@@ -26,13 +27,10 @@
             </div>
     <% end %>
   <% end %>
-</div>
+
 <%= form_for [@conversation, @message] do |f| %>
   <%= f.text_area :body, class: "textarea", placeholder: "Send message....." %>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
     <%= f.submit "Send message", class: "button" %>
-  </div>
-  
-<% end %>
-
 </div>
+<% end %>
