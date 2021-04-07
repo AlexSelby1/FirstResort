@@ -1,12 +1,12 @@
 module JobApplicationHelper
  # Checked to see if an application is accepted
-    def job_application_is_accepted(job_application)
-        job_application.isAccepted == true
-    end
+ #   def job_application_is_accepted(job_application)
+ #       job_application.isAccepted == true
+ #   end
 # Checked to see if an application is pending
-    def pending_application(job_application)
-        job_application.isAccepted == false
-    end
+  #  def pending_application(pending_application)
+  #      job_application.isAccepted == false
+  #  end
       # Checking to see if the reviewer has already reviewed the user
     def create_review_path(review, current_user)
         return '' if current_user.blank?

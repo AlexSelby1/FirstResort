@@ -1,32 +1,32 @@
-<% @job_applications.each do |job_application| %>
-<div class ="applications">
- <% if @job_applications.length == 0 %>
+<div class = "jobApplication">
+<h1> Pending Applications </h1>
 <br/>
-<h2>There are currently no applications</h2>
-<% end %>
-<% if pending_application(job_application) %>
-   <h3><p><%= job_application.applicant_id %></p></h3>
-                 <h3>  <%= job_application.id %></h3>
-           <h3>  <%= job_application.job.title %></h3>
-          
-              <h3><p><%= job_application.applicant.name %></p></h3>
-              <%= link_to 'View', job_application.applicant, :class => "button", :role => "button" %>
-              <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
-              <%= button_to 'Accept', toggle_accept_job_job_application_path(job_application.job,job_application), remote: true, method: :post, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-              <%= button_to "Reject", [job_application.job,job_application], method: :delete, data: { confirm: 'Are you sure?' },  :class => "button", :role => "button"  %>
-              </div>  
-         <% end %>
+<% if @pending_applications.length ==0%>
+<h2> There are no pending applications </h2>
+<%end%>
+<% @pending_applications.each do |pending_application| %>
+<div class ="applications">
+   <h3><p><%= pending_application.applicant_id %></p></h3>
+                 <h3>  <%= pending_application.id %></h3>
+           <h3>  <%= pending_application.job.title %></h3>
+              <h3><p><%= pending_application.applicant.name %></p></h3>
+              <%= link_to 'View', pending_application.applicant, :class => "button", :role => "button" %>
+              <%= link_to 'Message', new_conversation_path(sender_id: pending_application.job.user_id, recipient_id: pending_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+              <%= button_to 'Accept', toggle_accept_job_job_application_path(pending_application.job,pending_application), remote: true, method: :post, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+              <%= button_to "Reject", [pending_application.job,pending_application], method: :delete, data: { confirm: 'Are you sure?' },  :class => "button", :role => "button"  %>
+              </div>           
  <% end %>
+ <br>
  <hr>
- <h1> Accepted </h1>
- <% @job_applications.each do |job_application| %>
-        <% if job_application_is_accepted(job_application) %>
-                 <h3>  <%= job_application.id %></h3>
-           <h3>  <%= job_application.job.title %></h3>
-              <h3><p><%= job_application.applicant.name %></p></h3>
-              <%= link_to 'View', job_application.applicant, :class => "button", :role => "button" %>
-              <%= link_to 'Message', new_conversation_path(sender_id: job_application.job.user_id, recipient_id: job_application.applicant_id), method: "post", :class => "button", :role => "button" %>
-             <%= link_to "Write Review", new_user_review_path(job_application.applicant), :class => "button", :role => "button" %>
+ <h1> Accepted Applications</h1>
+ <% @accepted_applications.each do |accepted_application| %>
+          <div class ="applications">
+                 <h3>  <%= accepted_application.id %></h3>
+           <h3>  <%= accepted_application.job.title %></h3>
+              <h3><p><%= accepted_application.applicant.name %></p></h3>
+              <%= link_to 'View', accepted_application.applicant, :class => "button", :role => "button" %>
+              <%= link_to 'Message', new_conversation_path(sender_id: accepted_application.job.user_id, recipient_id: accepted_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+             <%= link_to "Write Review", new_user_review_path(accepted_application.applicant), :class => "button", :role => "button" %>
               </div>  
-         <% end %>
  <% end %>
+ </div>

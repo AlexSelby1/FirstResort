@@ -6,6 +6,8 @@ class JobApplicationsController < ApplicationController
   def index
     @job = Job.find(params[:job_id])
     @job_applications = @job.job_applications
+    @pending_applications = @job.job_applications.where(isAccepted: false)
+    @accepted_applications = @job.job_applications.where(isAccepted: true)
   end
  # POST /job_applications
   def create

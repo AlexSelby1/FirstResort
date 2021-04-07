@@ -731,6 +731,11 @@ width: 80%;
 	cursor: pointer;
 	float:right;
 	}
+
+.jobApplication{
+	width: 100%;
+	text-align: center;
+	}
 	
 .applications{
 	display: inline-block;
