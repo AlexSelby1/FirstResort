@@ -2,9 +2,9 @@
 require 'spec_helper'
 require 'support/factory_bot'
 require 'support/database_cleaner'
+require 'support/capybara_helper'
 require 'capybara'
 require 'devise'
-
 include Warden::Test::Helpers
 
 
@@ -41,7 +41,7 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
+  config.include CapybaraHelper, type: :feature
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

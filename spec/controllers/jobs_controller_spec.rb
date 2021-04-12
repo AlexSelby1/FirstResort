@@ -1,6 +1,8 @@
 require "rails_helper"
 
-RSpec.describe JobsController, :focus, :type => :controller do
+#Controller Testing
+
+RSpec.describe JobsController, :type => :controller do
     describe "GET index" do
         it "should get index page" do
           get :index
@@ -48,6 +50,7 @@ RSpec.describe JobsController, :focus, :type => :controller do
                end
               end
 
+          #Routes Testing
           describe 'routing' do
 
             it 'routes to #index' do
@@ -61,7 +64,6 @@ RSpec.describe JobsController, :focus, :type => :controller do
             it 'routes to #new' do
              expect(get: '/jobs/new').to route_to('jobs#new')
             end
-           
             
             it 'routes to #update via PATCH' do
              expect(patch: '/jobs/1').to route_to('jobs#update', id: '1')
