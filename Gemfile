@@ -53,6 +53,8 @@ gem "font-awesome-rails"
 # Text editor
 gem 'trix'
 gem 'actiontext'
+gem "sendgrid-ruby", "~> 6.4"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

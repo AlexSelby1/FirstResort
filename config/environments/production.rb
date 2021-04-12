@@ -109,11 +109,14 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  
-  ActionMailer::Base.smtp_settings = {
-    user_name: ENV['GOOGLE_EMAIL'],
-    password: ENV['GOOGLE_PWD'],
-    :address => 'smtp.gmail.com',
+  config.action_mailer.default_url_options = {host: 'firstresort.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['SENDGRID_EMAIL'],
+    password: ENV['SENDGRID_PASSWORD'],
+    :domain => 'firstresort.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
