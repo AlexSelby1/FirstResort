@@ -1,5 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe JobApplication, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+#Associations and Validations Testing
+
+RSpec.describe JobApplication, :type => :model do
+        it { should belong_to(:job) }
+        it { should belong_to(:applicant) }
 end

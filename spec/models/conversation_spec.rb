@@ -1,5 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Conversation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+#Associations and Validations Testing
+
+RSpec.describe Conversation, :type => :model do
+        it { should belong_to :sender }
+        it { should belong_to :recipient}
+        it { should have_many :messages}
 end
+
+
