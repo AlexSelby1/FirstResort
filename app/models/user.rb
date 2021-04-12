@@ -16,12 +16,10 @@ class User < ApplicationRecord
   mount_uploader :file, FileUploader
 
   # Validations
-  validates :name, presence:  { message: '*Please enter a name' }
-  validates :email, presence:  { message: '*Please enter an email' }
-  validates :email, uniqueness: { message: '*Email is already taken' }
-  validates :password, presence: { message: '*Please enter a password' }, on: :new
-  validates :password, :length => {minimum: 6, message: '*Password is too short' }, on: :new
-  validates :password_confirmation, presence: { message: '*Please confirm your password' }, on: :new
+  validates :name, presence:  true
+  validates :email, :presence => true, :uniqueness => { case_sensitive: false }
+  validates :password, :presence => true, :length => {:minimum => 6}, on: :new
+  validates :password_confirmation, presence: true, on: :new
   validates_processing_of :images
   validate :image_size_validation
   validates_inclusion_of :isHost, :in => [true, false]
