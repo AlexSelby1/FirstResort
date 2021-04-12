@@ -30,4 +30,37 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user: 
+          attributes:
+            name: 
+              blank: "*Please enter a Name"
+            email:  
+              blank: "*Please enter an Email"  
+              taken: "*Email is already taken"  
+            password:  
+              blank: "*Please enter an Password"               
+              too_short: "*Password is too short" 
+            password_confirmation: 
+              blank: "*Please enter the Password Confirmation"
+              confirmation: "*Password does not match"
+            current_password:
+              blank: "*Please enter a Password"
+      models:        
+        job:
+          attributes:
+            title:
+                blank: "*Please enter a Title"
+                too_long: "*Title is too long"
+            country:
+                blank: "*Please enter a Country"
+            category:
+                inclusion: "*Please enter a Category"    
+            description:
+                blank: "*Please enter a Description"   
+                too_short: "*Description is too short"   
+                too_long: "*Description is too long"    
+          
+
