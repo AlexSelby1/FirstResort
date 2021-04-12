@@ -48,7 +48,7 @@
         <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @job.user.id), method: 'post',  :id => "button", :role => "button"  %>
 <% elsif ((user_is_admin) || (user_is_owner(@job))) %>
   <%= link_to 'View Applications', job_job_applications_path(job_id: @job.id),  :id => "button", :role => "button"  %>
-<%= link_to 'Edit', edit_job_path(@job),  :class => "button", :role => "button"  %>
+<%= link_to 'Edit', edit_job_path(@job),  :claiiddss => "button", :role => "button"  %>
  <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, :id => "button", :role => "button" %>
  <% end %>
  <%= link_to 'Back', jobs_path,  :id => "button", :role => "button", :method => "get"  %>

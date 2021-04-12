@@ -11,16 +11,22 @@
  <% if (user_profile) %>
   <%= link_to "Edit", edit_registration_path(@user), :class => "button", :role => "button" %>
   <% end %>
+   <% if (user_is_admin) %>
+    <%= link_to "View All Users", users_path, :class => "button", :role => "button" %>
+    <%= link_to "View All Jobs", jobs_path, :class => "button", :role => "button" %>
+  <% end %>
  </aside>
 <br>
 <br>
 <br>
 <section>
+ <% if (user_is_candidate) && (user_is_host) %>
   <div class="profiletext">
 <p><b> Rating:</b> <br>
 <div class="star-rating-show" data-score= <%= @avg_rating %> ></div>
  <hr>
  </div>
+  <% end %>
   <div class="profiletext">
 <p><b> Email:</b> <br><%= @user.email %></p>
  <hr>
@@ -58,8 +64,9 @@
  <%= render 'users/jobs'  %>
  </div>
  <% end %>
+ </div>
    <% if ((user_is_admin) || (user_is_host)) %>  
   <%= link_to 'New Job', new_job_path, :class =>"button", :role=>"button" %>
 <% end %>
 <% end %>
-</div>
+

@@ -11,7 +11,7 @@
            <h3>  <%= pending_application.job.title %></h3>
               <h3><p><%= pending_application.applicant.name %></p></h3>
               <%= link_to 'View', pending_application.applicant, :class => "button", :role => "button" %>
-              <%= link_to 'Message', new_conversation_path(sender_id: pending_application.job.user_id, recipient_id: pending_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+              <%= link_to 'Message', new_conversation_path(sender_id: pending_application.job.user_id, recipient_id: pending_application.applicant_id), method: "get", :class => "button", :role => "button" %>
               <%= button_to 'Accept', toggle_accept_job_job_application_path(pending_application.job,pending_application), remote: true, method: :post, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
               <%= button_to "Reject", [pending_application.job,pending_application], method: :delete, data: { confirm: 'Are you sure?' },  :class => "button", :role => "button"  %>
               </div>           
@@ -25,7 +25,7 @@
            <h3>  <%= accepted_application.job.title %></h3>
               <h3><p><%= accepted_application.applicant.name %></p></h3>
               <%= link_to 'View', accepted_application.applicant, :class => "button", :role => "button" %>
-              <%= link_to 'Message', new_conversation_path(sender_id: accepted_application.job.user_id, recipient_id: accepted_application.applicant_id), method: "post", :class => "button", :role => "button" %>
+              <%= link_to 'Message', new_conversation_path(sender_id: accepted_application.job.user_id, recipient_id: accepted_application.applicant_id), method: "get", :class => "button", :role => "button" %>
              <%= link_to "Write Review", new_user_review_path(accepted_application.applicant), :class => "button", :role => "button" %>
               </div>  
  <% end %>

@@ -1,17 +1,6 @@
 <%= form_for ([@user,@review]) do |f| %>
   <div class="form-group">
 
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <%= f.hidden_field :user_id, :value => @review.user_id %>
 
   <div class="field">
@@ -20,9 +9,10 @@
 
   <div class="field">
     <h3><%= f.label :comment %><br></h3>
-    <%= f.text_area :comment, placeholder: "Comment" %>
+    <%= f.text_area :comment, class: "text-area", placeholder: "Comment" %>
   </div>
-  <div class="actions">
+  <div id="submit">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>

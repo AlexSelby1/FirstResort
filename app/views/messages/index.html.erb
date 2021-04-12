@@ -31,6 +31,6 @@
 <%= form_for [@conversation, @message] do |f| %>
   <%= f.text_area :body, class: "textarea", placeholder: "Send message....." %>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <%= f.submit "Send message", class: "button" %>
+    <%= f.submit "Send Message", class: "button" %>
 </div>
 <% end %>

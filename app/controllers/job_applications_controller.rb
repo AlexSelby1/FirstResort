@@ -39,7 +39,7 @@ class JobApplicationsController < ApplicationController
   private
   # Only allow a list of trusted parameters through.
   def application_params
-    params.require(:job_application).permit(:applicant_id, :job_id, :owner_id).merge(applicant_id: params[:applicant_id])
+    params.require(:job_application).permit(:applicant_id, :job_id).merge(applicant_id: params[:applicant_id])
   end
   def conversation_params
     params.permit(:sender_id, :recipient_id)

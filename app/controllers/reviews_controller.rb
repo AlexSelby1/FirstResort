@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
 private
  # Only allow a list of trusted parameters through.
    def review_params
-   params.require(:review).permit(:rating, :comment, :reviewee_id, :user_id).merge(user_id: params[:user_id])
+   params.require(:review).permit(:rating, :comment, :reviewer_id, :user_id).merge(user_id: params[:user_id])
    end
 
 # Find user by id
