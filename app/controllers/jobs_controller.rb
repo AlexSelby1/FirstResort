@@ -5,7 +5,7 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.order("created_at desc").page(params[:page]).per(3)
+    @jobs = Job.order("created_at asc").page(params[:page]).per(4)
     @categories = Category.all
   end
 
@@ -21,6 +21,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+  #  @job = Job.find(params[:id])
   end
 
   # POST /jobs or /jobs.json
@@ -57,7 +58,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: "Job was successfully destroyed." }
+      format.html { redirect_to jobs_url, notice: "Job was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -84,11 +85,11 @@ class JobsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @jobs = Job.find(params[:id])
+      @job = Job.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:id, :title, :country, :category, :description, :images, :user_id)
+      params.require(:job).permit(:title, :country, :category, :description, :images, :user_id)
     end
 end

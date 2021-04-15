@@ -20,7 +20,7 @@
 <br>
 <br>
 <section>
- <% if (user_is_candidate) && (user_is_host) %>
+ <% if (user_is_candidate) || (user_is_host) %>
   <div class="profiletext">
 <p><b> Rating:</b> <br>
 <div class="star-rating-show" data-score= <%= @avg_rating %> ></div>
@@ -48,7 +48,11 @@
  <hr>
    </div>
  <br>
+ <% if (user_is_candidate) %>
  <p><%= link_to "View CV", asset_path(@user.file) %></p>
+ <% else %>
+  <p><%= link_to "View Document", asset_path(@user.file) %></p>
+ <% end %>
  <br>
  </div>
  </section>
