@@ -7,7 +7,7 @@ class Review < ApplicationRecord
     # Validations
     validates :rating, presence: true
     validates :comment, presence: true, length: { maximum: 500 }
-    validates :user_id, uniqueness: { scope: :reviewer_id, alert: "You've reviewed this user!" }
+    validates :user_id, uniqueness: { scope: :reviewer_id, alert: "You've already reviewed this user!" }
 
 
     # Method for average rating of all reviews for a user

@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
             if @review.save
                 redirect_to root_path, notice: 'Review was successfully created'
             else 
-            render 'new'
+            redirect_to new_user_review_path, alert: 'You have already reviewed this user'
             end
     end
 
