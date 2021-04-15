@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
         if @contact.deliver
            redirect_to home, notice: 'Message sent successfully'
         else
-           redirect_to root_path, alert:'Message is undeliverable'
+            render :action => 'new', alert:'Message is undeliverable'
         end
     end
 
