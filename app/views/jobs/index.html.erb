@@ -2,17 +2,21 @@
 <%=render 'layouts/search'%>
 <%=render 'layouts/categories'%>
 <br>
+
 <% if @jobs.length == 0 %>
+<div class="empty">
 <br/>
 <h2>There are currently no jobs </h2>
+</div>
 <% end %>
+
     <% @jobs.each do |job| %>
     <div class="jobContainer">
     <div id="img">
     <% if job.images_url %>
     <%= link_to (image_tag job.images_url(:thumb)), job %>
     <% else %>
-    <%= image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:200px;width:200px;') %>
+    <%= link_to (image_tag("/assets/imgholder.jpg", alt:"Image placeholder", style: 'height:180px;width:200px;')), job %>
     <% end %> 
     </div>
     <p class="text"><%= job.category %></p><p class="text"> <%= job.country %></p>

@@ -1,7 +1,9 @@
 <%=render 'users/search'%>
 <% if @users.length == 0 %>
+<div class="empty">
 <br/>
 <h2>There are currently no candidates </h2>
+</div>
 <% end %>
 
 <% @users.each do |user| %>

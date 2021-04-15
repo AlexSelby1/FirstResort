@@ -1,6 +1,7 @@
 class JobApplicationsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_host, only: :index
+  include JobApplicationHelper
 
    # GET /job_applications
   def index

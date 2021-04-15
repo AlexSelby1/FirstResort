@@ -4,8 +4,10 @@
 <%=render 'layouts/categories'%>
 <br>
 <% if @jobs.length == 0 %>
+<div class="empty">
 <br/>
 <h2>There are currently no jobs in this category</h2>
+</div>
 <% end %>
     <% @jobs.each do |job| %>
     <div class="jobContainer">

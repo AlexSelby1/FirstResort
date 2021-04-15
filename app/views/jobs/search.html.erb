@@ -2,8 +2,10 @@
 <%=render 'layouts/search'%>
 <%=render 'layouts/categories'%>
 <% if @jobs.length == 0 %>
+<div class="empty">
 <br>
 <h2>No Jobs were found to match your search</h2>
+</div>
 <% end %>
        <% @jobs.each do |job| %>
     <div class="jobContainer">

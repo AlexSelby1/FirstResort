@@ -1,5 +1,13 @@
 <div class = "conversation">
 <h3>Conversations</h3>
+
+<% if @conversations.length == 0%>
+<div class="empty">
+<br/>
+<h2>There are currently no conversations </h2>
+</div>
+<% else %>
+
 <table id="conversations">
   <thead>
     <tr>
@@ -9,7 +17,7 @@
     <th>Read</th>
         </tr>
   </thead>
-
+<% end %>
   <tbody>
     <% @conversations.each do |conversation| %>
     <tr>
