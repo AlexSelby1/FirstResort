@@ -8,5 +8,5 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :images])
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :isHost, :isCandidate, :images]) 
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_password, :isHost, :isCandidate, :images])
-      end
+    end
 end

@@ -1,9 +1,9 @@
   <!-- Categories view -->
 <div class="category">
-<p><b><i>Choose by category</i></b></p>
+  <p><b><i>Choose by category</i></b></p>
 <% @categories.each do |category| %>
 <div class="cat">
-<a href="/category/<%= category.title %>"> <%= image_tag category.image, :class=>"catIm" %> </a>
+  <a href="/category/<%= category.title %>"> <%= image_tag category.image, :class=>"catIm" %> </a>
 </div>
 <% end %>
 </div>

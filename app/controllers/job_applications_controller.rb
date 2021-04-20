@@ -28,6 +28,7 @@ class JobApplicationsController < ApplicationController
     @job_application.destroy
     redirect_to job_job_applications_path(@job), notice: "Rejected Applicant."
   end
+  
 # Method to accept job applications
   def toggle_accept
     @job = Job.find(params[:job_id])

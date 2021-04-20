@@ -1,7 +1,7 @@
 /* Test */
 console.log("Hello from slideshow.js");
 
-/* display slideshow for home page */
+/* Display slideshow for home page */
 window.showSlides = function() {
   var i;
   var slides = document.getElementsByClassName("slides");

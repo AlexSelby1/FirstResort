@@ -80,7 +80,7 @@ class JobsController < ApplicationController
   # CATEGORY  
   def category
     catName=params[:title]
-    @jobs = Job.where("category LIKE?", catName).order("created_at desc").page(params[:page]).per(3)
+    @jobs = Job.where("category LIKE?", catName).order("created_at desc").page(params[:page]).per(4)
   end
   private
     # Use callbacks to share common setup or constraints between actions.

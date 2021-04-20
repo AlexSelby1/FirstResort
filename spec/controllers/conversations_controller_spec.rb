@@ -2,7 +2,7 @@ require "rails_helper"
 
 #Controller Testing 
 
-RSpec.describe ConversationsController, :type => :controller do
+RSpec.describe ConversationsController, :focus, :type => :controller do
     describe "GET index" do
         it "should get index page" do
           sign_in (create(:user))

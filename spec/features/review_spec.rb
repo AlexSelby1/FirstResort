@@ -2,7 +2,7 @@ require 'rails_helper'
 
 # Review Testing 
 
-feature "review spec" ,:focus do
+feature "review spec"  do
     scenario "Host to create review", js: true do
         sign_up_host
         create_job

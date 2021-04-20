@@ -1,7 +1,5 @@
-
 <div class ="formbox">
 <h2>Edit Profile</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
              <% if f.object.images? %>
       <%= image_tag f.object.images.thumb.url %>
@@ -27,10 +25,6 @@
     <br>
     <%= f.country_select :country, { include_blank: 'Select a country' } %>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
       <div class = "forms">
         <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -58,8 +52,6 @@
   </div>
 <% end %>
 <h3>Cancel my account</h3>
-
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
 <%= link_to "Back", :back %>
 </div>
